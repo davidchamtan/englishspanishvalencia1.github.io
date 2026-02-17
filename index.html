@@ -1,323 +1,250 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>English & Spanish Valencia | David</title>
-  <meta name="description" content="Clases de inglés y español en Valencia u online. Enfoque práctico y conversacional. Reserva por WhatsApp." />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>English & Spanish Valencia</title>
 
-  <style>
-    :root{
-      --primary:#1f3c88;   /* azul */
-      --accent:#ff7a00;    /* naranja */
-      --bg:#f4f7fb;        /* fondo suave */
-      --card:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --shadow:0 12px 30px rgba(17,24,39,.08);
-      --radius:16px;
-    }
+<style>
+:root{
+--blue:#243c7a;
+--accent:#ff8c1a;
+--bg:#f5f7fb;
+--card:#ffffff;
+--text:#1a1a1a;
+--muted:#6b7280;
+}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.5;
-    }
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+background:var(--bg);
+color:var(--text);
+}
 
-    .wrap{max-width:980px;margin:0 auto;padding:22px}
-    .top{
-      background:linear-gradient(0deg, rgba(31,60,136,.92), rgba(31,60,136,.92));
-      border-radius:18px;
-      padding:26px 22px;
-      color:#fff;
-      box-shadow:var(--shadow);
-    }
-    .badge{
-      display:inline-block;
-      padding:6px 10px;
-      border:1px solid rgba(255,255,255,.25);
-      border-radius:999px;
-      font-size:13px;
-      opacity:.95;
-    }
-    h1{margin:12px 0 6px;font-size:38px;letter-spacing:-0.02em}
-    .sub{margin:0;color:rgba(255,255,255,.88);font-size:16px}
-    .sub2{margin:6px 0 0;color:rgba(255,255,255,.78);font-size:14px}
+/* idioma */
+.lang-toggle{
+position:fixed;
+top:12px;
+right:12px;
+background:white;
+padding:6px 10px;
+border-radius:20px;
+box-shadow:0 2px 8px rgba(0,0,0,.15);
+font-size:18px;
+z-index:99;
+cursor:pointer;
+}
+.lang-toggle span{opacity:.4;margin:0 4px}
+.lang-toggle span.active{opacity:1}
 
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 0}
-    a.btn{
-      display:inline-block;
-      padding:12px 16px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:700;
-      border:1px solid transparent;
-    }
-    .primary{background:var(--accent);color:#111827}
-    .secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
-    .small{color:var(--muted);font-size:14px;margin:10px 0 0}
+/* header */
+.hero{
+background:linear-gradient(135deg,#2d4da3,#1d2f63);
+color:white;
+padding:70px 20px 60px;
+border-radius:0 0 24px 24px;
+text-align:center;
+}
+.hero h1{margin:0;font-size:42px}
+.hero p{margin:10px 0 0;font-size:18px;opacity:.95}
 
-    section{padding:18px 0}
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:16px;
-      box-shadow:0 10px 24px rgba(17,24,39,.06);
-    }
-    h2{margin:0 0 10px;font-size:22px}
+.btn{
+display:inline-block;
+margin:12px 6px;
+padding:14px 20px;
+border-radius:12px;
+font-weight:600;
+text-decoration:none;
+}
+.btn-main{background:var(--accent);color:white}
+.btn-sec{background:rgba(255,255,255,.15);color:white}
 
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    ul{margin:10px 0 0;padding-left:18px}
-    .note{color:var(--muted);font-size:13px;margin:10px 0 0}
+/* sections */
+.wrap{max-width:1000px;margin:auto;padding:20px}
+.card{
+background:var(--card);
+padding:18px;
+border-radius:16px;
+box-shadow:0 4px 16px rgba(0,0,0,.08);
+margin:16px 0;
+}
 
-    /* ====== BLOQUE FOTOS (ARREGLADO) ====== */
-    .photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .photoCard{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:18px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:16px;
+}
 
-    /* contenedor más alto para que NO corte tanto */
-    .photoMedia{
-      width:100%;
-      aspect-ratio: 4 / 5;   /* antes suele ser muy chato; esto muestra más */
-      background:#eef2ff;
-    }
+/* images */
+.photo{
+width:100%;
+height:340px;
+object-fit:cover;
+border-radius:16px;
+}
 
-    .photoMedia img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center center;
-      display:block;
-    }
+/* testimonial */
+.testimonial{font-style:italic}
+.name{color:var(--muted);margin-top:8px}
 
-    /* Ajuste especial Australia: que se vea más arena/cielo */
-    .photoMedia img.australia{
-      object-position: 50% 35%; /* baja un poco el encuadre */
-    }
-
-    /* Ajuste especial oficina: queda centrada */
-    .photoMedia img.office{
-      object-position: 50% 40%;
-    }
-
-    .photoBody{padding:14px 14px 16px}
-    .photoTitle{margin:0;font-size:18px;font-weight:800}
-    .photoText{margin:6px 0 0;color:var(--muted);font-size:14px}
-
-    /* ====== TESTIMONIOS ====== */
-    .testGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-    .quote{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px;
-      box-shadow:0 8px 18px rgba(17,24,39,.05);
-    }
-    .qtext{margin:0;color:#111827;font-size:14px}
-    .qwho{margin:10px 0 0;color:var(--muted);font-size:13px}
-
-    /* ====== PRECIOS ====== */
-    .price{font-size:18px;font-weight:900;margin:0}
-    footer{
-      margin-top:10px;
-      padding:18px 0;
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-    }
-
-    @media (max-width:860px){
-      h1{font-size:32px}
-      .grid,.photos{grid-template-columns:1fr}
-      .testGrid{grid-template-columns:1fr}
-      .photoMedia{aspect-ratio: 4 / 5;} /* se mantiene bien en móvil */
-    }
-  </style>
+/* hide language */
+.en{display:none}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="top">
-      <span class="badge">Valencia • Online</span>
-      <h1>English & Spanish Valencia</h1>
-      <p class="sub">Conversación real · Aprendizaje práctico · Vida real</p>
-      <p class="sub2">Clases claras, paso a paso, con enfoque en hablar y entender.</p>
 
-      <div class="cta">
-        <!-- WhatsApp correcto -->
-        <a class="btn primary"
-           href="https://wa.me/34632155215?text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____."
-           target="_blank" rel="noopener">Contactar por WhatsApp</a>
-        <a class="btn secondary" href="#pricing">Ver precios</a>
-      </div>
-      <p class="small" style="color:rgba(255,255,255,.75)">WhatsApp: +34 632 155 215</p>
-    </div>
+<div class="lang-toggle">
+<span id="esBtn" class="active">🇪🇸</span>|
+<span id="enBtn">🇬🇧</span>
+</div>
 
-    <section id="about">
-      <h2>Sobre las clases</h2>
-      <div class="card">
-        Clases de inglés y español en Valencia y online. Enfoque en conversación real para situaciones cotidianas:
-        trabajo, viajes, entrevistas y vida diaria.
-        <div class="note">No memorización aburrida — hablar desde el primer día.</div>
-      </div>
-    </section>
+<header class="hero">
+<h1>English & Spanish Valencia</h1>
 
-    <section id="improve">
-      <h2>Qué vas a mejorar</h2>
-      <div class="grid">
-        <div class="card">
-          <strong>English</strong>
-          <ul>
-            <li>Speaking confidence</li>
-            <li>Listening comprehension</li>
-            <li>Pronunciation</li>
-            <li>Everyday vocabulary</li>
-            <li>Real conversations</li>
-            <li>Simple grammar (only what you need)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Español</strong>
-          <ul>
-            <li>Confianza al hablar</li>
-            <li>Comprensión auditiva</li>
-            <li>Pronunciación</li>
-            <li>Vocabulario cotidiano</li>
-            <li>Conversación real</li>
-            <li>Gramática simple y útil</li>
-          </ul>
-        </div>
-      </div>
-      <p class="note">No memorizar. Sin presión. Progreso real.</p>
-    </section>
+<p class="es">Conversación real • Aprendizaje práctico • Vida diaria</p>
+<p class="en">Real conversation • Practical learning • Real life</p>
 
-    <section id="photos">
-      <h2>Experiencia / Experiencia (fotos)</h2>
+<a class="btn btn-main"
+href="https://wa.me/34632155215?text=Hola!%20Quiero%20información%20sobre%20las%20clases">
+WhatsApp</a>
 
-      <div class="photos">
-        <div class="photoCard">
-          <div class="photoMedia">
-            <!-- OJO: nombre largo = Australia -->
-            <img class="australia" src="310665A1-E5E0-492D-8968-4095C6D6E775.jpeg" alt="Australia" />
-          </div>
-          <div class="photoBody">
-            <p class="photoTitle">Australia</p>
-            <p class="photoText">Experiencia internacional + inglés real en contexto. (Tu foto con la casita y bandera)</p>
-          </div>
-        </div>
+<a class="btn btn-sec" href="#prices">
+<span class="es">Ver precios</span>
+<span class="en">Prices</span>
+</a>
 
-        <div class="photoCard">
-          <div class="photoMedia">
-            <!-- nombre corto = oficina -->
-            <img class="office" src="IMG_2883.jpeg" alt="Perfil profesional" />
-          </div>
-          <div class="photoBody">
-            <p class="photoTitle">Profesional</p>
-            <p class="photoText">Clases claras, organizadas y efectivas. (Tu foto en oficina)</p>
-          </div>
-        </div>
-      </div>
+</header>
 
-      <p class="note">Si querés, después agregamos 2–3 fotos más (Valencia / clases / lifestyle) y queda más “lleno”.</p>
-    </section>
+<div class="wrap">
 
-    <section id="how">
-      <h2>Cómo funciona</h2>
-      <div class="grid">
-        <div class="card">
-          <strong>1) Prueba gratis (20 min)</strong>
-          <div class="note">Nivel + objetivos + plan corto para vos.</div>
-        </div>
-        <div class="card">
-          <strong>2) Plan personalizado</strong>
-          <div class="note">Según tu trabajo, viajes, entrevistas, etc.</div>
-        </div>
-        <div class="card">
-          <strong>3) Progreso semanal</strong>
-          <div class="note">Correcciones + práctica real + tareas simples.</div>
-        </div>
-        <div class="card">
-          <strong>Duración</strong>
-          <div class="note">50–60 min por clase (la prueba es de 20 min).</div>
-        </div>
-      </div>
-    </section>
+<div class="card">
+<h2 class="es">Sobre las clases</h2>
+<h2 class="en">About the lessons</h2>
 
-    <section id="testimonials">
-      <h2>Testimonios</h2>
-      <div class="testGrid">
-        <div class="quote">
-          <p class="qtext">“Me explicó todo simple y sin presión. En 2 semanas ya podía hablar en situaciones reales.”</p>
-          <p class="qwho">— Laura, Valencia (A2 → B1)</p>
-        </div>
-        <div class="quote">
-          <p class="qtext">“Las clases son prácticas: vocabulario real + conversación. No es el típico libro aburrido.”</p>
-          <p class="qwho">— Marco, online</p>
-        </div>
-        <div class="quote">
-          <p class="qtext">“Me ayudó con entrevistas y pronunciación. Ahora me siento mucho más seguro hablando.”</p>
-          <p class="qwho">— Andrés, Valencia</p>
-        </div>
-      </div>
-      <p class="note">Después cambiamos estos textos por testimonios reales tuyos (con iniciales si querés).</p>
-    </section>
+<p class="es">
+Clases de inglés y español en Valencia u online. Enfoque en conversación real para situaciones cotidianas: trabajo, viajes, entrevistas y vida diaria.
+</p>
 
-    <section id="pricing">
-      <h2>Precios</h2>
-      <div class="grid">
-        <div class="card">
-          <p class="price">Trial — Gratis</p>
-          <p class="note">20 min · Nivel + objetivos</p>
-        </div>
-        <div class="card">
-          <p class="price">Clase suelta — 15€</p>
-          <p class="note">50–60 min</p>
-        </div>
-        <div class="card">
-          <p class="price">Pack 5 — 55€</p>
-          <p class="note">Incluye bonus</p>
-        </div>
-        <div class="card">
-          <p class="price">Pack 12 — 130€</p>
-          <p class="note">Incluye bonus</p>
-        </div>
-      </div>
-      <div class="card" style="margin-top:14px">
-        <strong>Pago</strong>
-        <p class="note" style="margin-top:6px">Efectivo (presencial) o pago online.</p>
-      </div>
-    </section>
+<p class="en">
+English and Spanish lessons in Valencia or online. Focus on real conversation for daily situations: work, travel, interviews and everyday life.
+</p>
+</div>
 
-    <section id="book">
-      <h2>Reservar clase</h2>
-      <div class="card">
-        <p style="margin:0">Escribime por WhatsApp y coordinamos horario.</p>
-        <div class="cta" style="margin-top:12px">
-          <a class="btn primary"
-             href="https://wa.me/34632155215?text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____."
-             target="_blank" rel="noopener">Reservar por WhatsApp</a>
-          <a class="btn secondary" href="#pricing">Ver precios</a>
-        </div>
-      </div>
-    </section>
+<h2 class="es">Experiencia</h2>
+<h2 class="en">Experience</h2>
 
-    <footer>
-      © <span id="y"></span> David — Valencia. Aprender para usar, no para memorizar.
-    </footer>
-  </div>
+<div class="grid">
+<div class="card">
+<img src="310665A1-E5E0-492D-8968-4095C6D6E775.jpeg" class="photo">
+<h3>Australia</h3>
+<p class="es">Experiencia internacional enseñando idioma en contexto real.</p>
+<p class="en">International experience teaching language in real context.</p>
+</div>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+<div class="card">
+<img src="IMG_2883.jpeg" class="photo">
+<h3 class="es">Profesional</h3>
+<h3 class="en">Professional</h3>
+<p class="es">Clases claras, organizadas y efectivas.</p>
+<p class="en">Clear, structured and effective lessons.</p>
+</div>
+</div>
+
+<h2 class="es">Cómo funciona</h2>
+<h2 class="en">How it works</h2>
+
+<div class="grid">
+<div class="card">
+<b class="es">Prueba gratis (20 min)</b>
+<b class="en">Free trial (20 min)</b>
+<p class="es">Evaluación de nivel y objetivos.</p>
+<p class="en">Level evaluation and goals.</p>
+</div>
+
+<div class="card">
+<b class="es">Plan personalizado</b>
+<b class="en">Personalized plan</b>
+<p class="es">Adaptado a lo que necesitas.</p>
+<p class="en">Adapted to your needs.</p>
+</div>
+
+<div class="card">
+<b class="es">Progreso semanal</b>
+<b class="en">Weekly progress</b>
+<p class="es">Correcciones y práctica real.</p>
+<p class="en">Corrections and real practice.</p>
+</div>
+</div>
+
+<h2 class="es">Testimonios</h2>
+<h2 class="en">Testimonials</h2>
+
+<div class="grid">
+<div class="card testimonial">
+“Me explicó simple y sin presión. En pocas semanas pude hablar mejor.”
+<div class="name">— María</div>
+</div>
+
+<div class="card testimonial">
+“Clases prácticas y conversación real. Muy útil.”
+<div class="name">— Ruby</div>
+</div>
+
+<div class="card testimonial">
+“Me ayudó con pronunciación y entrevistas.”
+<div class="name">— Martínez</div>
+</div>
+</div>
+
+<h2 id="prices" class="es">Precios</h2>
+<h2 class="en">Pricing</h2>
+
+<div class="grid">
+<div class="card">
+<b class="es">Clase individual — 15€</b>
+<b class="en">Single class — 15€</b>
+</div>
+
+<div class="card">
+<b class="es">Pack 5 — 55€</b>
+<b class="en">Pack 5 — 55€</b>
+</div>
+
+<div class="card">
+<b class="es">Pack 12 — 130€</b>
+<b class="en">Pack 12 — 130€</b>
+</div>
+</div>
+
+<div class="card" style="text-align:center;margin-top:30px">
+<a class="btn btn-main"
+href="https://wa.me/34632155215?text=Hola!%20Quiero%20reservar%20una%20clase">
+<span class="es">Reservar por WhatsApp</span>
+<span class="en">Book via WhatsApp</span>
+</a>
+</div>
+
+</div>
+
+<script>
+const esBtn=document.getElementById("esBtn");
+const enBtn=document.getElementById("enBtn");
+
+function setLang(lang){
+document.querySelectorAll(".es").forEach(e=>e.style.display=lang==="es"?"":"none");
+document.querySelectorAll(".en").forEach(e=>e.style.display=lang==="en"?"":"none");
+esBtn.classList.toggle("active",lang==="es");
+enBtn.classList.toggle("active",lang==="en");
+localStorage.setItem("lang",lang);
+}
+
+esBtn.onclick=()=>setLang("es");
+enBtn.onclick=()=>setLang("en");
+
+setLang(localStorage.getItem("lang")||"es");
+</script>
+
 </body>
 </html>
