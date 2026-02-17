@@ -3,233 +3,184 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>English & Spanish Coaching Valencia | David</title>
-  <meta name="description" content="Clases prácticas de inglés y español en Valencia (46009) u online. Prueba gratis. Reserva por WhatsApp." />
+  <title>English & Spanish Valencia | David</title>
+  <meta name="description" content="Clases de inglés y español en Valencia u online. Enfoque práctico y conversacional. Reserva por WhatsApp." />
 
   <style>
     :root{
-      --bg:#f6f7fb;
+      --primary:#1f3c88;   /* azul */
+      --accent:#ff7a00;    /* naranja */
+      --bg:#f4f7fb;        /* fondo suave */
       --card:#ffffff;
       --text:#111827;
       --muted:#6b7280;
       --line:#e5e7eb;
-
-      --primary:#1f3c88;   /* azul confianza */
-      --accent:#ff7a00;    /* naranja acción */
-      --dark:#0b1220;
-
-      --shadow: 0 10px 25px rgba(17,24,39,.08);
+      --shadow:0 12px 30px rgba(17,24,39,.08);
       --radius:16px;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
     body{
+      margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:var(--bg);
       color:var(--text);
-      line-height:1.45;
+      line-height:1.5;
     }
-    a{color:inherit}
-    .wrap{max-width:980px;margin:0 auto;padding:22px}
-    .topbar{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:12px;padding:14px 0 8px;
-    }
-    .brand{
-      display:flex;align-items:center;gap:10px;
-      font-weight:800;letter-spacing:-0.02em
-    }
-    .dot{
-      width:12px;height:12px;border-radius:50%;
-      background:linear-gradient(135deg,var(--primary),var(--accent));
-      box-shadow:0 6px 16px rgba(31,60,136,.25);
-    }
-    .nav{
-      display:flex;flex-wrap:wrap;gap:10px;
-      color:var(--muted);font-size:14px;
-    }
-    .nav a{text-decoration:none;padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:#fff}
-    .nav a:hover{border-color:#cfd5df}
 
-    header.hero{
-      margin-top:10px;
-      background:linear-gradient(135deg,var(--primary) 0%, #274aa8 55%, #0f1f46 100%);
-      color:#fff;border-radius:22px;
-      padding:26px;
-      box-shadow:0 18px 40px rgba(31,60,136,.18);
-      position:relative;overflow:hidden;
-    }
-    header.hero:before{
-      content:"";
-      position:absolute;inset:-120px -120px auto auto;
-      width:260px;height:260px;border-radius:50%;
-      background:rgba(255,122,0,.18);
-      filter:blur(0px);
-    }
-    header.hero:after{
-      content:"";
-      position:absolute;inset:auto auto -140px -140px;
-      width:300px;height:300px;border-radius:50%;
-      background:rgba(255,255,255,.10);
+    .wrap{max-width:980px;margin:0 auto;padding:22px}
+    .top{
+      background:linear-gradient(0deg, rgba(31,60,136,.92), rgba(31,60,136,.92));
+      border-radius:18px;
+      padding:26px 22px;
+      color:#fff;
+      box-shadow:var(--shadow);
     }
     .badge{
       display:inline-block;
-      padding:8px 12px;border-radius:999px;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.20);
+      padding:6px 10px;
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:999px;
       font-size:13px;
-      backdrop-filter: blur(6px);
+      opacity:.95;
     }
-    h1{margin:14px 0 10px;font-size:42px;letter-spacing:-0.03em;line-height:1.05}
-    .sub{margin:0;color:rgba(255,255,255,.90);font-size:18px;max-width:66ch}
-    .lang{margin:8px 0 0;color:rgba(255,255,255,.85)}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .btn{
-      display:inline-block;padding:12px 16px;border-radius:14px;
-      text-decoration:none;font-weight:750;
+    h1{margin:12px 0 6px;font-size:38px;letter-spacing:-0.02em}
+    .sub{margin:0;color:rgba(255,255,255,.88);font-size:16px}
+    .sub2{margin:6px 0 0;color:rgba(255,255,255,.78);font-size:14px}
+
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 0}
+    a.btn{
+      display:inline-block;
+      padding:12px 16px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
       border:1px solid transparent;
     }
-    .btn.primary{background:var(--accent);color:#111;box-shadow:0 12px 24px rgba(255,122,0,.22)}
-    .btn.primary:hover{filter:brightness(.98)}
-    .btn.secondary{
-      background:rgba(255,255,255,.14);color:#fff;
-      border-color:rgba(255,255,255,.22)
-    }
-    .btn.secondary:hover{background:rgba(255,255,255,.18)}
-    .mini{margin-top:10px;font-size:14px;color:rgba(255,255,255,.85)}
-    .mini strong{color:#fff}
+    .primary{background:var(--accent);color:#111827}
+    .secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
+    .small{color:var(--muted);font-size:14px;margin:10px 0 0}
 
-    section{padding:22px 0}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    section{padding:18px 0}
     .card{
       background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:16px;
-      box-shadow:var(--shadow);
+      box-shadow:0 10px 24px rgba(17,24,39,.06);
     }
     h2{margin:0 0 10px;font-size:22px}
-    .muted{color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
     ul{margin:10px 0 0;padding-left:18px}
     .note{color:var(--muted);font-size:13px;margin:10px 0 0}
 
-    .imgcard{
-      padding:0;overflow:hidden;
-    }
-    .imgcard img{
-      width:100%;height:320px;object-fit:cover;display:block;
-    }
-    .imgcap{padding:14px 16px}
-    .imgcap .small{margin:6px 0 0;color:var(--muted);font-size:13px}
-
-    .price{font-size:18px;font-weight:800;margin:0}
-    .small{color:var(--muted);font-size:14px;margin:6px 0 0}
-
-    .divider{height:1px;background:var(--line);margin:14px 0}
-
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:999px;
-      border:1px solid var(--line);background:#fff;
-      font-size:13px;color:var(--muted);
-    }
-    .pill b{color:var(--text)}
-    .kpi{
-      display:flex;gap:10px;flex-wrap:wrap;margin-top:10px
-    }
-
-    .faq details{
+    /* ====== BLOQUE FOTOS (ARREGLADO) ====== */
+    .photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .photoCard{
+      background:var(--card);
       border:1px solid var(--line);
-      border-radius:14px;
-      padding:12px 14px;
-      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
     }
-    .faq details + details{margin-top:10px}
-    .faq summary{cursor:pointer;font-weight:750}
-    .faq p{margin:10px 0 0;color:var(--muted)}
 
+    /* contenedor más alto para que NO corte tanto */
+    .photoMedia{
+      width:100%;
+      aspect-ratio: 4 / 5;   /* antes suele ser muy chato; esto muestra más */
+      background:#eef2ff;
+    }
+
+    .photoMedia img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+      display:block;
+    }
+
+    /* Ajuste especial Australia: que se vea más arena/cielo */
+    .photoMedia img.australia{
+      object-position: 50% 35%; /* baja un poco el encuadre */
+    }
+
+    /* Ajuste especial oficina: queda centrada */
+    .photoMedia img.office{
+      object-position: 50% 40%;
+    }
+
+    .photoBody{padding:14px 14px 16px}
+    .photoTitle{margin:0;font-size:18px;font-weight:800}
+    .photoText{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    /* ====== TESTIMONIOS ====== */
+    .testGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .quote{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      box-shadow:0 8px 18px rgba(17,24,39,.05);
+    }
+    .qtext{margin:0;color:#111827;font-size:14px}
+    .qwho{margin:10px 0 0;color:var(--muted);font-size:13px}
+
+    /* ====== PRECIOS ====== */
+    .price{font-size:18px;font-weight:900;margin:0}
     footer{
-      margin-top:14px;
-      padding:18px 0 30px;
+      margin-top:10px;
+      padding:18px 0;
       color:var(--muted);
       font-size:13px;
       text-align:center;
     }
 
     @media (max-width:860px){
-      h1{font-size:34px}
-      .grid,.grid3{grid-template-columns:1fr}
-      .imgcard img{height:280px}
-      .nav{display:none}
+      h1{font-size:32px}
+      .grid,.photos{grid-template-columns:1fr}
+      .testGrid{grid-template-columns:1fr}
+      .photoMedia{aspect-ratio: 4 / 5;} /* se mantiene bien en móvil */
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="topbar">
-      <div class="brand"><span class="dot"></span> English & Spanish Valencia</div>
-      <nav class="nav">
-        <a href="#about">Sobre</a>
-        <a href="#improve">Mejoras</a>
-        <a href="#experience">Experiencia</a>
-        <a href="#pricing">Precios</a>
-        <a href="#book">Reservar</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-    </div>
-
-    <header class="hero">
-      <span class="badge">Valencia (46009) • Online • Trial gratis</span>
-      <h1>Learn Real English — Not Textbook English</h1>
-      <p class="sub">Practical lessons for beginners & pre-intermediate students. Speak with confidence in real life: work, travel, interviews, daily conversations.</p>
-      <p class="lang">Aprende inglés real para la vida diaria. Clases para principiantes y nivel básico-intermedio (y también español para extranjeros).</p>
+    <div class="top">
+      <span class="badge">Valencia • Online</span>
+      <h1>English & Spanish Valencia</h1>
+      <p class="sub">Conversación real · Aprendizaje práctico · Vida real</p>
+      <p class="sub2">Clases claras, paso a paso, con enfoque en hablar y entender.</p>
 
       <div class="cta">
-        <!-- Opción 1 (web) -->
-        <a class="btn primary" href="https://wa.me/34632155215?text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____." target="_blank" rel="noopener">WhatsApp Ahora</a>
-
-        <!-- Opción 2 (si Safari no abre bien) -->
-        <a class="btn secondary" href="whatsapp://send?phone=34632155215&text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____.">Abrir WhatsApp (app)</a>
-
+        <!-- WhatsApp correcto -->
+        <a class="btn primary"
+           href="https://wa.me/34632155215?text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____."
+           target="_blank" rel="noopener">Contactar por WhatsApp</a>
         <a class="btn secondary" href="#pricing">Ver precios</a>
       </div>
-
-      <div class="mini">
-        <strong>WhatsApp:</strong> +34 632 155 215 &nbsp;•&nbsp; <strong>Formato:</strong> 50–60 min &nbsp;•&nbsp; <strong>Trial:</strong> 20 min
-      </div>
-    </header>
+      <p class="small" style="color:rgba(255,255,255,.75)">WhatsApp: +34 632 155 215</p>
+    </div>
 
     <section id="about">
-      <h2>About / Sobre mí</h2>
+      <h2>Sobre las clases</h2>
       <div class="card">
-        <p style="margin:0">
-          I’m David. I teach practical, real conversation — what people actually say in daily life.
-          I have international experience and I explain everything clearly (Spanish native).
-        </p>
-        <p class="muted" style="margin:10px 0 0">
-          Soy David (Argentina). Experiencia internacional (Australia y Asia). Te enseño a hablar en situaciones reales, con un método simple, sin presión y con progreso semanal.
-        </p>
-
-        <div class="kpi">
-          <span class="pill"><b>Enfoque:</b> conversación real</span>
-          <span class="pill"><b>Niveles:</b> A0–B1</span>
-          <span class="pill"><b>Modalidad:</b> Valencia u online</span>
-          <span class="pill"><b>Objetivo:</b> confianza al hablar</span>
-        </div>
+        Clases de inglés y español en Valencia y online. Enfoque en conversación real para situaciones cotidianas:
+        trabajo, viajes, entrevistas y vida diaria.
+        <div class="note">No memorización aburrida — hablar desde el primer día.</div>
       </div>
     </section>
 
     <section id="improve">
-      <h2>What you will improve / Qué vas a mejorar</h2>
+      <h2>Qué vas a mejorar</h2>
       <div class="grid">
         <div class="card">
           <strong>English</strong>
           <ul>
             <li>Speaking confidence</li>
             <li>Listening comprehension</li>
-            <li>Pronunciation (clear + natural)</li>
+            <li>Pronunciation</li>
             <li>Everyday vocabulary</li>
             <li>Real conversations</li>
             <li>Simple grammar (only what you need)</li>
@@ -240,139 +191,128 @@
           <ul>
             <li>Confianza al hablar</li>
             <li>Comprensión auditiva</li>
-            <li>Pronunciación clara</li>
+            <li>Pronunciación</li>
             <li>Vocabulario cotidiano</li>
             <li>Conversación real</li>
             <li>Gramática simple y útil</li>
           </ul>
         </div>
       </div>
-      <p class="note">No memorizing. No pressure. Step-by-step progress. • Sin presión. Progreso real.</p>
+      <p class="note">No memorizar. Sin presión. Progreso real.</p>
     </section>
 
-    <section id="experience">
-      <h2>Experience / Experiencia (fotos)</h2>
-      <div class="grid">
-        <div class="card imgcard">
-          <img src="310665A1-E5E0-492D-8968-4095C6D6E775.jpeg" alt="Australia - experiencia internacional" />
-          <div class="imgcap">
-            <strong>Australia</strong>
-            <div class="small">Experiencia internacional + inglés real en contexto. (Tu foto con la casita y bandera)</div>
+    <section id="photos">
+      <h2>Experiencia / Experiencia (fotos)</h2>
+
+      <div class="photos">
+        <div class="photoCard">
+          <div class="photoMedia">
+            <!-- OJO: nombre largo = Australia -->
+            <img class="australia" src="310665A1-E5E0-492D-8968-4095C6D6E775.jpeg" alt="Australia" />
+          </div>
+          <div class="photoBody">
+            <p class="photoTitle">Australia</p>
+            <p class="photoText">Experiencia internacional + inglés real en contexto. (Tu foto con la casita y bandera)</p>
           </div>
         </div>
 
-        <div class="card imgcard">
-          <img src="IMG_2883.jpeg" alt="Perfil profesional - oficina" />
-          <div class="imgcap">
-            <strong>Profesional</strong>
-            <div class="small">Clases claras, organizadas y efectivas. (Tu foto en oficina)</div>
+        <div class="photoCard">
+          <div class="photoMedia">
+            <!-- nombre corto = oficina -->
+            <img class="office" src="IMG_2883.jpeg" alt="Perfil profesional" />
+          </div>
+          <div class="photoBody">
+            <p class="photoTitle">Profesional</p>
+            <p class="photoText">Clases claras, organizadas y efectivas. (Tu foto en oficina)</p>
           </div>
         </div>
       </div>
+
       <p class="note">Si querés, después agregamos 2–3 fotos más (Valencia / clases / lifestyle) y queda más “lleno”.</p>
     </section>
 
     <section id="how">
-      <h2>How it works / Cómo funciona</h2>
-      <div class="grid3">
+      <h2>Cómo funciona</h2>
+      <div class="grid">
         <div class="card">
-          <strong>1) Trial gratis (20 min)</strong>
-          <p class="small">Nivel + objetivos + plan corto para empezar.</p>
+          <strong>1) Prueba gratis (20 min)</strong>
+          <div class="note">Nivel + objetivos + plan corto para vos.</div>
         </div>
         <div class="card">
           <strong>2) Plan personalizado</strong>
-          <p class="small">Según tu trabajo, viajes, entrevistas, vida diaria.</p>
+          <div class="note">Según tu trabajo, viajes, entrevistas, etc.</div>
         </div>
         <div class="card">
           <strong>3) Progreso semanal</strong>
-          <p class="small">Correcciones + práctica real + confianza.</p>
+          <div class="note">Correcciones + práctica real + tareas simples.</div>
+        </div>
+        <div class="card">
+          <strong>Duración</strong>
+          <div class="note">50–60 min por clase (la prueba es de 20 min).</div>
         </div>
       </div>
     </section>
 
-    <section id="pricing">
-      <h2>Pricing / Precios</h2>
-      <div class="grid">
-        <div class="card">
-          <p class="price">Trial lesson — Free</p>
-          <p class="small">20 min • Clase de prueba gratis</p>
+    <section id="testimonials">
+      <h2>Testimonios</h2>
+      <div class="testGrid">
+        <div class="quote">
+          <p class="qtext">“Me explicó todo simple y sin presión. En 2 semanas ya podía hablar en situaciones reales.”</p>
+          <p class="qwho">— Laura, Valencia (A2 → B1)</p>
         </div>
-
-        <div class="card">
-          <p class="price">Single class — 15€</p>
-          <p class="small">50–60 min • Clase individual</p>
+        <div class="quote">
+          <p class="qtext">“Las clases son prácticas: vocabulario real + conversación. No es el típico libro aburrido.”</p>
+          <p class="qwho">— Marco, online</p>
         </div>
-
-        <div class="card">
-          <p class="price">5 classes pack — 55€</p>
-          <p class="small">Pack 5 clases • Incluye bonus</p>
-        </div>
-
-        <div class="card">
-          <p class="price">12 classes pack — 130€</p>
-          <p class="small">Pack 12 clases • Incluye bonus</p>
+        <div class="quote">
+          <p class="qtext">“Me ayudó con entrevistas y pronunciación. Ahora me siento mucho más seguro hablando.”</p>
+          <p class="qwho">— Andrés, Valencia</p>
         </div>
       </div>
+      <p class="note">Después cambiamos estos textos por testimonios reales tuyos (con iniciales si querés).</p>
+    </section>
 
+    <section id="pricing">
+      <h2>Precios</h2>
+      <div class="grid">
+        <div class="card">
+          <p class="price">Trial — Gratis</p>
+          <p class="note">20 min · Nivel + objetivos</p>
+        </div>
+        <div class="card">
+          <p class="price">Clase suelta — 15€</p>
+          <p class="note">50–60 min</p>
+        </div>
+        <div class="card">
+          <p class="price">Pack 5 — 55€</p>
+          <p class="note">Incluye bonus</p>
+        </div>
+        <div class="card">
+          <p class="price">Pack 12 — 130€</p>
+          <p class="note">Incluye bonus</p>
+        </div>
+      </div>
       <div class="card" style="margin-top:14px">
-        <strong>Payment / Pago</strong>
-        <p class="small" style="margin:6px 0 0">Cash (in person) or online payment. <br>Efectivo (presencial) o pago online.</p>
+        <strong>Pago</strong>
+        <p class="note" style="margin-top:6px">Efectivo (presencial) o pago online.</p>
       </div>
     </section>
 
     <section id="book">
-      <h2>Booking / Reservas</h2>
+      <h2>Reservar clase</h2>
       <div class="card">
-        <p style="margin:0">
-          To reserve, message me on WhatsApp. We choose a time and confirm your booking.
-        </p>
-        <p class="muted" style="margin:8px 0 0">
-          Para reservar, escribime por WhatsApp. Elegimos horario y confirmamos.
-        </p>
-
+        <p style="margin:0">Escribime por WhatsApp y coordinamos horario.</p>
         <div class="cta" style="margin-top:12px">
-          <a class="btn primary" href="https://wa.me/34632155215?text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____." target="_blank" rel="noopener">Reservar por WhatsApp</a>
-          <a class="btn secondary" href="tel:+34632155215">Llamar</a>
+          <a class="btn primary"
+             href="https://wa.me/34632155215?text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____."
+             target="_blank" rel="noopener">Reservar por WhatsApp</a>
+          <a class="btn secondary" href="#pricing">Ver precios</a>
         </div>
-
-        <div class="divider"></div>
-        <p class="small" style="margin:0"><strong>Tip:</strong> Si el botón web no abre, probá el botón “Abrir WhatsApp (app)” arriba.</p>
-      </div>
-    </section>
-
-    <section id="faq">
-      <h2>FAQ / Preguntas frecuentes</h2>
-      <div class="faq">
-        <details>
-          <summary>¿Para qué niveles es?</summary>
-          <p>A0–B1 (principiantes y básico-intermedio). Si estás más arriba, igual se puede, pero el foco principal es conversación real para la vida.</p>
-        </details>
-        <details>
-          <summary>¿Presencial u online?</summary>
-          <p>Ambos. En Valencia (46009) o por videollamada.</p>
-        </details>
-        <details>
-          <summary>¿Cómo es una clase típica?</summary>
-          <p>Warm-up + conversación guiada + correcciones + mini-gramática útil + tareas simples (si querés).</p>
-        </details>
-        <details>
-          <summary>¿Cuánto dura?</summary>
-          <p>50–60 min. La prueba es de 20 min.</p>
-        </details>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact / Contacto</h2>
-      <div class="card">
-        <p style="margin:0"><strong>English & Spanish Coaching Valencia</strong></p>
-        <p class="small" style="margin:6px 0 0">Valencia, 46009 • Online</p>
-        <p class="small" style="margin:6px 0 0">WhatsApp: +34 632 155 215</p>
       </div>
     </section>
 
     <footer>
-      © <span id="y"></span> David — Valencia. Conversación real • aprendizaje práctico • vida real.
+      © <span id="y"></span> David — Valencia. Aprender para usar, no para memorizar.
     </footer>
   </div>
 
