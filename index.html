@@ -1,178 +1,383 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English & Spanish Coaching Valencia | David</title>
+  <meta name="description" content="Clases prácticas de inglés y español en Valencia (46009) u online. Prueba gratis. Reserva por WhatsApp." />
 
-<title>English & Spanish Valencia</title>
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
 
-<style>
+      --primary:#1f3c88;   /* azul confianza */
+      --accent:#ff7a00;    /* naranja acción */
+      --dark:#0b1220;
 
-/* ====== COLORES (inspirado en tu flyer: moderno, cálido, profesional) ====== */
-:root{
-  --primary:#1f3c88;      /* azul confianza */
-  --accent:#ff7a00;       /* naranja energía */
-  --light:#f4f7fb;        /* fondo suave */
-  --dark:#1a1a1a;
-}
+      --shadow: 0 10px 25px rgba(17,24,39,.08);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .wrap{max-width:980px;margin:0 auto;padding:22px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;padding:14px 0 8px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:800;letter-spacing:-0.02em
+    }
+    .dot{
+      width:12px;height:12px;border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      box-shadow:0 6px 16px rgba(31,60,136,.25);
+    }
+    .nav{
+      display:flex;flex-wrap:wrap;gap:10px;
+      color:var(--muted);font-size:14px;
+    }
+    .nav a{text-decoration:none;padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:#fff}
+    .nav a:hover{border-color:#cfd5df}
 
-/* ====== GENERAL ====== */
-body{
-  margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  background:var(--light);
-  color:var(--dark);
-  line-height:1.6;
-}
+    header.hero{
+      margin-top:10px;
+      background:linear-gradient(135deg,var(--primary) 0%, #274aa8 55%, #0f1f46 100%);
+      color:#fff;border-radius:22px;
+      padding:26px;
+      box-shadow:0 18px 40px rgba(31,60,136,.18);
+      position:relative;overflow:hidden;
+    }
+    header.hero:before{
+      content:"";
+      position:absolute;inset:-120px -120px auto auto;
+      width:260px;height:260px;border-radius:50%;
+      background:rgba(255,122,0,.18);
+      filter:blur(0px);
+    }
+    header.hero:after{
+      content:"";
+      position:absolute;inset:auto auto -140px -140px;
+      width:300px;height:300px;border-radius:50%;
+      background:rgba(255,255,255,.10);
+    }
+    .badge{
+      display:inline-block;
+      padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.20);
+      font-size:13px;
+      backdrop-filter: blur(6px);
+    }
+    h1{margin:14px 0 10px;font-size:42px;letter-spacing:-0.03em;line-height:1.05}
+    .sub{margin:0;color:rgba(255,255,255,.90);font-size:18px;max-width:66ch}
+    .lang{margin:8px 0 0;color:rgba(255,255,255,.85)}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .btn{
+      display:inline-block;padding:12px 16px;border-radius:14px;
+      text-decoration:none;font-weight:750;
+      border:1px solid transparent;
+    }
+    .btn.primary{background:var(--accent);color:#111;box-shadow:0 12px 24px rgba(255,122,0,.22)}
+    .btn.primary:hover{filter:brightness(.98)}
+    .btn.secondary{
+      background:rgba(255,255,255,.14);color:#fff;
+      border-color:rgba(255,255,255,.22)
+    }
+    .btn.secondary:hover{background:rgba(255,255,255,.18)}
+    .mini{margin-top:10px;font-size:14px;color:rgba(255,255,255,.85)}
+    .mini strong{color:#fff}
 
-.container{
-  width:90%;
-  max-width:1000px;
-  margin:auto;
-  padding:30px 0;
-}
+    section{padding:22px 0}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    h2{margin:0 0 10px;font-size:22px}
+    .muted{color:var(--muted)}
+    ul{margin:10px 0 0;padding-left:18px}
+    .note{color:var(--muted);font-size:13px;margin:10px 0 0}
 
-/* ====== HEADER ====== */
-header{
-  background:var(--primary);
-  color:white;
-  text-align:center;
-  padding:60px 20px;
-}
+    .imgcard{
+      padding:0;overflow:hidden;
+    }
+    .imgcard img{
+      width:100%;height:320px;object-fit:cover;display:block;
+    }
+    .imgcap{padding:14px 16px}
+    .imgcap .small{margin:6px 0 0;color:var(--muted);font-size:13px}
 
-header h1{
-  margin:0;
-  font-size:40px;
-}
+    .price{font-size:18px;font-weight:800;margin:0}
+    .small{color:var(--muted);font-size:14px;margin:6px 0 0}
 
-header p{
-  font-size:18px;
-  opacity:0.9;
-}
+    .divider{height:1px;background:var(--line);margin:14px 0}
 
-/* ====== SECTIONS ====== */
-section{
-  margin:40px 0;
-}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid var(--line);background:#fff;
+      font-size:13px;color:var(--muted);
+    }
+    .pill b{color:var(--text)}
+    .kpi{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:10px
+    }
 
-h2{
-  color:var(--primary);
-  margin-bottom:10px;
-}
+    .faq details{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 14px;
+      background:#fff;
+    }
+    .faq details + details{margin-top:10px}
+    .faq summary{cursor:pointer;font-weight:750}
+    .faq p{margin:10px 0 0;color:var(--muted)}
 
-/* ====== CARD ====== */
-.card{
-  background:white;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.08);
-}
+    footer{
+      margin-top:14px;
+      padding:18px 0 30px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
 
-/* ====== PHOTOS ====== */
-.gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-}
-
-.photo{
-  width:100%;
-  border-radius:12px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.15);
-}
-
-figcaption{
-  text-align:center;
-  margin-top:8px;
-  font-size:14px;
-  color:#555;
-}
-
-/* ====== BUTTON ====== */
-.btn{
-  display:inline-block;
-  background:var(--accent);
-  color:white;
-  padding:14px 24px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  margin-top:15px;
-}
-
-.btn:hover{
-  background:#e66a00;
-}
-
-/* ====== FOOTER ====== */
-footer{
-  text-align:center;
-  padding:30px;
-  background:#111;
-  color:white;
-  margin-top:50px;
-}
-
-</style>
+    @media (max-width:860px){
+      h1{font-size:34px}
+      .grid,.grid3{grid-template-columns:1fr}
+      .imgcard img{height:280px}
+      .nav{display:none}
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> English & Spanish Valencia</div>
+      <nav class="nav">
+        <a href="#about">Sobre</a>
+        <a href="#improve">Mejoras</a>
+        <a href="#experience">Experiencia</a>
+        <a href="#pricing">Precios</a>
+        <a href="#book">Reservar</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
 
-<header>
-  <h1>English & Spanish Valencia</h1>
-  <p>Conversación real · Aprendizaje práctico · Vida real</p>
-</header>
+    <header class="hero">
+      <span class="badge">Valencia (46009) • Online • Trial gratis</span>
+      <h1>Learn Real English — Not Textbook English</h1>
+      <p class="sub">Practical lessons for beginners & pre-intermediate students. Speak with confidence in real life: work, travel, interviews, daily conversations.</p>
+      <p class="lang">Aprende inglés real para la vida diaria. Clases para principiantes y nivel básico-intermedio (y también español para extranjeros).</p>
 
-<div class="container">
+      <div class="cta">
+        <!-- Opción 1 (web) -->
+        <a class="btn primary" href="https://wa.me/34632155215?text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____." target="_blank" rel="noopener">WhatsApp Ahora</a>
 
-<section class="card">
-<h2>Sobre las clases</h2>
-<p>
-Clases de inglés y español en Valencia y online.
-Enfoque en conversación real para situaciones cotidianas:
-trabajo, viajes, entrevistas y vida diaria.
-</p>
+        <!-- Opción 2 (si Safari no abre bien) -->
+        <a class="btn secondary" href="whatsapp://send?phone=34632155215&text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____.">Abrir WhatsApp (app)</a>
 
-<p>
-No memorización aburrida — hablar desde el primer día.
-</p>
-</section>
+        <a class="btn secondary" href="#pricing">Ver precios</a>
+      </div>
 
+      <div class="mini">
+        <strong>WhatsApp:</strong> +34 632 155 215 &nbsp;•&nbsp; <strong>Formato:</strong> 50–60 min &nbsp;•&nbsp; <strong>Trial:</strong> 20 min
+      </div>
+    </header>
 
-<section>
-<h2>Experiencia</h2>
+    <section id="about">
+      <h2>About / Sobre mí</h2>
+      <div class="card">
+        <p style="margin:0">
+          I’m David. I teach practical, real conversation — what people actually say in daily life.
+          I have international experience and I explain everything clearly (Spanish native).
+        </p>
+        <p class="muted" style="margin:10px 0 0">
+          Soy David (Argentina). Experiencia internacional (Australia y Asia). Te enseño a hablar en situaciones reales, con un método simple, sin presión y con progreso semanal.
+        </p>
 
-<div class="gallery">
+        <div class="kpi">
+          <span class="pill"><b>Enfoque:</b> conversación real</span>
+          <span class="pill"><b>Niveles:</b> A0–B1</span>
+          <span class="pill"><b>Modalidad:</b> Valencia u online</span>
+          <span class="pill"><b>Objetivo:</b> confianza al hablar</span>
+        </div>
+      </div>
+    </section>
 
-<figure>
-<img class="photo" src="310665A1-E5E0-492D-8968-4095C6D6E775.jpeg">
-<figcaption>Australia: experiencia internacional y enfoque práctico del idioma.</figcaption>
-</figure>
+    <section id="improve">
+      <h2>What you will improve / Qué vas a mejorar</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>English</strong>
+          <ul>
+            <li>Speaking confidence</li>
+            <li>Listening comprehension</li>
+            <li>Pronunciation (clear + natural)</li>
+            <li>Everyday vocabulary</li>
+            <li>Real conversations</li>
+            <li>Simple grammar (only what you need)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Español</strong>
+          <ul>
+            <li>Confianza al hablar</li>
+            <li>Comprensión auditiva</li>
+            <li>Pronunciación clara</li>
+            <li>Vocabulario cotidiano</li>
+            <li>Conversación real</li>
+            <li>Gramática simple y útil</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">No memorizing. No pressure. Step-by-step progress. • Sin presión. Progreso real.</p>
+    </section>
 
-<figure>
-<img class="photo" src="IMG_2883.jpeg">
-<figcaption>Perfil profesional: clases claras, organizadas y efectivas.</figcaption>
-</figure>
+    <section id="experience">
+      <h2>Experience / Experiencia (fotos)</h2>
+      <div class="grid">
+        <div class="card imgcard">
+          <img src="310665A1-E5E0-492D-8968-4095C6D6E775.jpeg" alt="Australia - experiencia internacional" />
+          <div class="imgcap">
+            <strong>Australia</strong>
+            <div class="small">Experiencia internacional + inglés real en contexto. (Tu foto con la casita y bandera)</div>
+          </div>
+        </div>
 
-</div>
-</section>
+        <div class="card imgcard">
+          <img src="IMG_2883.jpeg" alt="Perfil profesional - oficina" />
+          <div class="imgcap">
+            <strong>Profesional</strong>
+            <div class="small">Clases claras, organizadas y efectivas. (Tu foto en oficina)</div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Si querés, después agregamos 2–3 fotos más (Valencia / clases / lifestyle) y queda más “lleno”.</p>
+    </section>
 
+    <section id="how">
+      <h2>How it works / Cómo funciona</h2>
+      <div class="grid3">
+        <div class="card">
+          <strong>1) Trial gratis (20 min)</strong>
+          <p class="small">Nivel + objetivos + plan corto para empezar.</p>
+        </div>
+        <div class="card">
+          <strong>2) Plan personalizado</strong>
+          <p class="small">Según tu trabajo, viajes, entrevistas, vida diaria.</p>
+        </div>
+        <div class="card">
+          <strong>3) Progreso semanal</strong>
+          <p class="small">Correcciones + práctica real + confianza.</p>
+        </div>
+      </div>
+    </section>
 
-<section class="card">
-<h2>Reservar clase</h2>
-<p>
-Primera clase para evaluar nivel y objetivos.
-Clases personalizadas según lo que realmente necesitas.
-</p>
+    <section id="pricing">
+      <h2>Pricing / Precios</h2>
+      <div class="grid">
+        <div class="card">
+          <p class="price">Trial lesson — Free</p>
+          <p class="small">20 min • Clase de prueba gratis</p>
+        </div>
 
-<a class="btn" href="https://wa.me/">Contactar por WhatsApp</a>
-</section>
+        <div class="card">
+          <p class="price">Single class — 15€</p>
+          <p class="small">50–60 min • Clase individual</p>
+        </div>
 
-</div>
+        <div class="card">
+          <p class="price">5 classes pack — 55€</p>
+          <p class="small">Pack 5 clases • Incluye bonus</p>
+        </div>
 
-<footer>
-English & Spanish Valencia — Aprender para usar, no para memorizar
-</footer>
+        <div class="card">
+          <p class="price">12 classes pack — 130€</p>
+          <p class="small">Pack 12 clases • Incluye bonus</p>
+        </div>
+      </div>
 
+      <div class="card" style="margin-top:14px">
+        <strong>Payment / Pago</strong>
+        <p class="small" style="margin:6px 0 0">Cash (in person) or online payment. <br>Efectivo (presencial) o pago online.</p>
+      </div>
+    </section>
+
+    <section id="book">
+      <h2>Booking / Reservas</h2>
+      <div class="card">
+        <p style="margin:0">
+          To reserve, message me on WhatsApp. We choose a time and confirm your booking.
+        </p>
+        <p class="muted" style="margin:8px 0 0">
+          Para reservar, escribime por WhatsApp. Elegimos horario y confirmamos.
+        </p>
+
+        <div class="cta" style="margin-top:12px">
+          <a class="btn primary" href="https://wa.me/34632155215?text=Hola%20David!%20Quiero%20reservar%20una%20clase.%20Mi%20nivel%20es%20____%20y%20mis%20objetivos%20son%20____." target="_blank" rel="noopener">Reservar por WhatsApp</a>
+          <a class="btn secondary" href="tel:+34632155215">Llamar</a>
+        </div>
+
+        <div class="divider"></div>
+        <p class="small" style="margin:0"><strong>Tip:</strong> Si el botón web no abre, probá el botón “Abrir WhatsApp (app)” arriba.</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>FAQ / Preguntas frecuentes</h2>
+      <div class="faq">
+        <details>
+          <summary>¿Para qué niveles es?</summary>
+          <p>A0–B1 (principiantes y básico-intermedio). Si estás más arriba, igual se puede, pero el foco principal es conversación real para la vida.</p>
+        </details>
+        <details>
+          <summary>¿Presencial u online?</summary>
+          <p>Ambos. En Valencia (46009) o por videollamada.</p>
+        </details>
+        <details>
+          <summary>¿Cómo es una clase típica?</summary>
+          <p>Warm-up + conversación guiada + correcciones + mini-gramática útil + tareas simples (si querés).</p>
+        </details>
+        <details>
+          <summary>¿Cuánto dura?</summary>
+          <p>50–60 min. La prueba es de 20 min.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact / Contacto</h2>
+      <div class="card">
+        <p style="margin:0"><strong>English & Spanish Coaching Valencia</strong></p>
+        <p class="small" style="margin:6px 0 0">Valencia, 46009 • Online</p>
+        <p class="small" style="margin:6px 0 0">WhatsApp: +34 632 155 215</p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> David — Valencia. Conversación real • aprendizaje práctico • vida real.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
