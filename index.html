@@ -21,7 +21,10 @@
       --shadow:0 10px 30px rgba(2,6,23,.08);
       --radius:18px;
 
-      /* === FOTO: controles fáciles === */
+      /* === FOTO: controles fáciles ===
+         Si querés “más foto” (menos recorte): bajá el scale.
+         Si querés subir/bajar el encuadre: cambiá el object-position Y.
+      */
       --ausScale: 1.02;
       --ausPosX: 50%;
       --ausPosY: 42%;
@@ -81,10 +84,6 @@
     .btn.secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.18)}
     .hero .meta{margin-top:14px;color:rgba(255,255,255,.80);font-size:14px}
 
-    /* Link estilo “bonito” dentro del hero */
-    .hero a.hero-link{color:#fff;text-decoration:underline;text-underline-offset:3px}
-    .hero a.hero-link:hover{opacity:.9}
-
     .section{padding:18px 0}
     .card{
       background:var(--card);
@@ -108,7 +107,7 @@
       padding:18px;
     }
     .photoFrame{
-      height:300px;
+      height:300px;              /* un poco más alto = más “largo” visual */
       border-radius:16px;
       overflow:hidden;
       background:#e9eefc;
@@ -122,6 +121,8 @@
       border-radius:14px;
       transform-origin:center;
     }
+
+    /* Ajustes finos por foto (menos recorte que antes) */
     .photoFrame img.photo-beach{
       transform:scale(var(--ausScale));
       object-position:var(--ausPosX) var(--ausPosY);
@@ -130,6 +131,7 @@
       transform:scale(var(--proScale));
       object-position:var(--proPosX) var(--proPosY);
     }
+
     .photoBody{padding:14px 16px 16px}
     .photoTitle{margin:0;font-size:22px}
     .photoDesc{margin:6px 0 0;color:var(--muted)}
@@ -140,33 +142,6 @@
     .priceDual{font-weight:800}
     .divider{height:1px;background:var(--line);margin:10px 0}
     footer{padding:22px 0;color:var(--muted);font-size:13px;text-align:center}
-
-    /* Bloque “Website” */
-    .linkRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      margin-top:10px;
-    }
-    .linkPill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow:0 8px 20px rgba(2,6,23,.05);
-    }
-    .linkPill small{
-      font-weight:600;
-      color:var(--muted);
-    }
-    .linkPill:hover{transform:translateY(-1px)}
-    .linkPill:active{transform:translateY(0px)}
 
     @media (max-width:860px){
       .hero h1{font-size:34px}
@@ -197,19 +172,14 @@
       <p class="sub" data-i18n="heroLine">Conversación real • Aprendizaje práctico • Vida diaria</p>
 
       <div class="cta">
-        <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener" data-i18n="ctaWA">Contactar por WhatsApp</a>
+        <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener" data-i18n="ctaWA">WhatsApp</a>
         <a class="btn secondary" href="#pricing" data-i18n="ctaPrices">Ver precios</a>
         <a class="btn secondary" href="#pay" data-i18n="ctaPay">Pagar</a>
       </div>
 
       <div class="meta">
         <span data-i18n="whats">WhatsApp:</span>
-        <a href="tel:+34632155215" class="hero-link">+34 632 155 215</a>
-        <span style="opacity:.55"> • </span>
-        <span data-i18n="siteLabel">Web:</span>
-        <a class="hero-link" id="siteTop" href="https://davidchamtan.github.io/englishspanishvalencia1.github.io/#pricing" target="_blank" rel="noopener">
-          davidchamtan.github.io
-        </a>
+        <a href="tel:+34632155215" style="color:#fff;text-decoration:underline">+34 632 155 215</a>
       </div>
     </header>
 
@@ -224,27 +194,6 @@
         <p class="pillnote" style="margin-bottom:0" data-i18n="aboutNote">
           Aprendés para usarlo desde el primer día, sin vueltas.
         </p>
-      </div>
-    </section>
-
-    <!-- WEBSITE (NUEVO) -->
-    <section class="section" id="website">
-      <h2 data-i18n="webTitle">Más info (Web)</h2>
-      <div class="card">
-        <p style="margin:0" class="muted" data-i18n="webText">
-          Si querés ver precios, detalles y todo el contenido, entrá a mi web:
-        </p>
-
-        <div class="linkRow">
-          <a class="linkPill" id="sitePill" href="https://davidchamtan.github.io/englishspanishvalencia1.github.io/#pricing" target="_blank" rel="noopener">
-            🌐 <span data-i18n="webBtn">Abrir la web</span>
-            <small>(pricing)</small>
-          </a>
-
-          <a class="linkPill" id="waPill" href="#" target="_blank" rel="noopener">
-            💬 <span data-i18n="webWABtn">Escribirme por WhatsApp</span>
-          </a>
-        </div>
       </div>
     </section>
 
@@ -286,6 +235,7 @@
       <h2 data-i18n="expTitle">Experiencia</h2>
 
       <div class="grid2">
+        <!-- LEFT: Australia -->
         <div class="card photoCard">
           <div class="photoWrap">
             <div class="photoFrame">
@@ -298,6 +248,7 @@
           </div>
         </div>
 
+        <!-- RIGHT: Professional -->
         <div class="card photoCard">
           <div class="photoWrap">
             <div class="photoFrame">
@@ -445,17 +396,7 @@
       <div class="card">
         <p style="margin:0"><strong>English & Spanish Valencia</strong></p>
         <p class="muted" style="margin:8px 0 0" data-i18n="contactLine">Valencia • Online</p>
-
-        <p class="muted" style="margin:6px 0 0">
-          <span data-i18n="contactWA">WhatsApp:</span> +34 632 155 215
-        </p>
-
-        <p class="muted" style="margin:6px 0 0">
-          <span data-i18n="contactWeb">Web:</span>
-          <a id="siteContact" href="https://davidchamtan.github.io/englishspanishvalencia1.github.io/#pricing" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px">
-            https://davidchamtan.github.io/englishspanishvalencia1.github.io/#pricing
-          </a>
-        </p>
+        <p class="muted" style="margin:6px 0 0">WhatsApp: +34 632 155 215</p>
       </div>
     </section>
 
@@ -468,8 +409,6 @@
     document.getElementById('y').textContent = new Date().getFullYear();
 
     const WA_NUMBER = "34632155215";
-    const SITE_URL = "https://davidchamtan.github.io/englishspanishvalencia1.github.io/#pricing";
-
     const waMsg = {
       es: "Hola David! Quiero reservar una clase. Me interesa: (1) Prueba gratis / (2) Clase individual / (3) Pack. Mi nivel es: ____. Mis objetivos son: ____. Estoy disponible en estos horarios: ____.",
       en: "Hi David! I'd like to book a lesson. I'm interested in: (1) Free trial / (2) Single class / (3) Pack. My level is: ____. My goals are: ____. My available times are: ____."
@@ -489,11 +428,6 @@
         ctaPrices:"Ver precios",
         ctaPay:"Pagar",
         whats:"WhatsApp:",
-        siteLabel:"Web:",
-        webTitle:"Más info (Web)",
-        webText:"Si querés ver precios, detalles y todo el contenido, entrá a mi web:",
-        webBtn:"Abrir la web",
-        webWABtn:"Escribirme por WhatsApp",
         aboutTitle:"Sobre las clases",
         aboutText:"Clases de inglés y español en Valencia u online. Enfoque en conversación real para situaciones cotidianas: trabajo, viajes, entrevistas y vida diaria.",
         aboutNote:"Aprendés para usarlo desde el primer día, sin vueltas.",
@@ -534,8 +468,6 @@
         bookBtnPrices:"Ver precios",
         contactTitle:"Contacto",
         contactLine:"Valencia • Online",
-        contactWA:"WhatsApp:",
-        contactWeb:"Web:",
         footerLine:"Aprender para usar, no para memorizar."
       },
       en: {
@@ -546,11 +478,6 @@
         ctaPrices:"See pricing",
         ctaPay:"Pay",
         whats:"WhatsApp:",
-        siteLabel:"Website:",
-        webTitle:"More info (Website)",
-        webText:"To see pricing, details, and everything, visit my website:",
-        webBtn:"Open website",
-        webWABtn:"Message me on WhatsApp",
         aboutTitle:"About the lessons",
         aboutText:"English and Spanish lessons in Valencia or online. Focused on real conversation for everyday situations: work, travel, interviews, and daily life.",
         aboutNote:"You learn to use it from day one—simple and practical.",
@@ -591,8 +518,6 @@
         bookBtnPrices:"See pricing",
         contactTitle:"Contact",
         contactLine:"Valencia • Online",
-        contactWA:"WhatsApp:",
-        contactWeb:"Website:",
         footerLine:"Learn to use it, not to memorize it."
       }
     };
@@ -606,24 +531,12 @@
         if(dict[key]) el.textContent = dict[key];
       });
 
-      // WhatsApp links
       const waLink = buildWaLink(lang);
       const top = document.getElementById("waTop");
       const bottom = document.getElementById("waBottom");
-      const waPill = document.getElementById("waPill");
       if(top) top.href = waLink;
       if(bottom) bottom.href = waLink;
-      if(waPill) waPill.href = waLink;
 
-      // Website links (por si querés cambiar URL en un solo lugar)
-      const siteTop = document.getElementById("siteTop");
-      const sitePill = document.getElementById("sitePill");
-      const siteContact = document.getElementById("siteContact");
-      if(siteTop) siteTop.href = SITE_URL;
-      if(sitePill) sitePill.href = SITE_URL;
-      if(siteContact) siteContact.href = SITE_URL;
-
-      // Toggle button state
       document.getElementById("btnES").classList.toggle("active", lang==="es");
       document.getElementById("btnEN").classList.toggle("active", lang==="en");
 
