@@ -18,11 +18,22 @@
       --accent:#f59e0b;
       --shadow:0 10px 30px rgba(2,6,23,.08);
       --radius:18px;
+
+      /* Foto: mantenemos poco recorte (NO zoom fuerte) */
+      --ausScale: 1.01;
+      --ausPosX: 50%;
+      --ausPosY: 44%;
+
+      --proScale: 1.01;
+      --proPosX: 50%;
+      --proPosY: 40%;
     }
+
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
     a{color:inherit}
     .wrap{max-width:980px;margin:0 auto;padding:18px}
+
     .hero{
       position:relative;
       border-radius:28px;
@@ -54,6 +65,7 @@
     }
     .langbtn.active{background:rgba(255,255,255,.18);opacity:1}
     .hero h1{margin:6px 0 10px;font-size:40px;letter-spacing:-.02em}
+    .hero p{margin:0;color:rgba(255,255,255,.90)}
     .hero .sub{margin-top:6px;color:rgba(255,255,255,.85);font-size:16px}
     .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
     .btn{
@@ -89,38 +101,35 @@
       border-radius:var(--radius);
       padding:18px;
     }
+
+    /* ✅ ACÁ ESTÁ EL CAMBIO GRANDE: MÁS ALTO */
     .photoFrame{
-      height:320px;               /* MÁS ALTO => “más larga” */
+      height:380px;              /* antes 300px */
       border-radius:16px;
       overflow:hidden;
       background:#e9eefc;
       display:flex;align-items:center;justify-content:center;
     }
+
     .photoFrame img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
       border-radius:14px;
-
-      /* Control fino (default) */
-      transform:scale(var(--zoom, 1.03));          /* menos zoom => menos recorte */
-      object-position:50% var(--posY, 45%);        /* baja/sube el encuadre */
       transform-origin:center;
     }
-
-    /* Ajuste específico por foto (menos recorte que antes) */
     .photoFrame img.photo-beach{
-      --zoom: 1.06;
-      --posY: 52%;
+      transform:scale(var(--ausScale));
+      object-position:var(--ausPosX) var(--ausPosY);
     }
     .photoFrame img.photo-office{
-      --zoom: 1.04;
-      --posY: 40%;
+      transform:scale(var(--proScale));
+      object-position:var(--proPosX) var(--proPosY);
     }
 
     .photoBody{padding:14px 16px 16px}
-    .photoTitle{margin:0;font-size:22px;font-weight:800}
+    .photoTitle{margin:0;font-size:22px}
     .photoDesc{margin:6px 0 0;color:var(--muted)}
 
     .priceBox{display:flex;flex-direction:column;gap:6px}
@@ -134,7 +143,10 @@
       .hero h1{font-size:34px}
       .grid2{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
-      .photoFrame{height:280px}
+
+      /* ✅ MÁS ALTO TAMBIÉN EN MÓVIL/TABLET */
+      .photoFrame{height:340px;}  /* antes 280px */
+
       .btn{min-width:unset;flex:1}
     }
   </style>
@@ -142,6 +154,7 @@
 
 <body>
   <div class="wrap">
+
     <header class="hero">
       <div class="topbar">
         <span class="badge" data-i18n="badge">Valencia • Online</span>
@@ -156,7 +169,7 @@
       <p class="sub" data-i18n="heroLine">Conversación real • Aprendizaje práctico • Vida diaria</p>
 
       <div class="cta">
-        <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener" data-i18n="ctaWA">WhatsApp</a>
+        <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener" data-i18n="ctaWA">Contactar por WhatsApp</a>
         <a class="btn secondary" href="#pricing" data-i18n="ctaPrices">Ver precios</a>
         <a class="btn secondary" href="#pay" data-i18n="ctaPay">Pagar</a>
       </div>
@@ -214,6 +227,7 @@
 
     <section class="section" id="experience">
       <h2 data-i18n="expTitle">Experiencia</h2>
+
       <div class="grid2">
         <div class="card photoCard">
           <div class="photoWrap">
@@ -279,6 +293,7 @@
 
     <section class="section" id="pricing">
       <h2 data-i18n="priceTitle">Precios</h2>
+
       <div class="grid2">
         <div class="card priceBox">
           <p class="priceTitle" data-i18n="p1T">Prueba (20 min) — Gratis</p>
@@ -288,7 +303,9 @@
         <div class="card priceBox">
           <p class="priceTitle" data-i18n="p2T">Clase individual (50–60 min)</p>
           <p class="priceSmall">
-            <span class="priceDual">15€</span><span class="muted"> • </span><span class="priceDual">A$25</span>
+            <span class="priceDual">15€</span>
+            <span class="muted"> • </span>
+            <span class="priceDual">A$25</span>
           </p>
           <p class="priceSmall" data-i18n="p2D">Conversación + correcciones + práctica</p>
         </div>
@@ -296,7 +313,9 @@
         <div class="card priceBox">
           <p class="priceTitle" data-i18n="p3T">Pack 5</p>
           <p class="priceSmall">
-            <span class="priceDual">55€</span><span class="muted"> • </span><span class="priceDual">A$90</span>
+            <span class="priceDual">55€</span>
+            <span class="muted"> • </span>
+            <span class="priceDual">A$90</span>
           </p>
           <p class="priceSmall" data-i18n="p3D">Incluye bonus</p>
         </div>
@@ -304,7 +323,9 @@
         <div class="card priceBox">
           <p class="priceTitle" data-i18n="p4T">Pack 12</p>
           <p class="priceSmall">
-            <span class="priceDual">130€</span><span class="muted"> • </span><span class="priceDual">A$215</span>
+            <span class="priceDual">130€</span>
+            <span class="muted"> • </span>
+            <span class="priceDual">A$215</span>
           </p>
           <p class="priceSmall" data-i18n="p4D">Incluye bonus</p>
         </div>
@@ -364,6 +385,7 @@
       es: "Hola David! Quiero reservar una clase. Me interesa: (1) Prueba gratis / (2) Clase individual / (3) Pack. Mi nivel es: ____. Mis objetivos son: ____. Estoy disponible en estos horarios: ____.",
       en: "Hi David! I'd like to book a lesson. I'm interested in: (1) Free trial / (2) Single class / (3) Pack. My level is: ____. My goals are: ____. My available times are: ____."
     };
+
     function buildWaLink(lang){
       const text = encodeURIComponent(waMsg[lang] || waMsg.es);
       return "https://wa.me/" + WA_NUMBER + "?text=" + text;
@@ -374,7 +396,7 @@
         badge:"Valencia • Online",
         h1:"English & Spanish Valencia",
         heroLine:"Conversación real • Aprendizaje práctico • Vida diaria",
-        ctaWA:"WhatsApp",
+        ctaWA:"Contactar por WhatsApp",
         ctaPrices:"Ver precios",
         ctaPay:"Pagar",
         whats:"WhatsApp:",
@@ -424,7 +446,7 @@
         badge:"Valencia • Online",
         h1:"English & Spanish Valencia",
         heroLine:"Real conversation • Practical learning • Daily life",
-        ctaWA:"WhatsApp",
+        ctaWA:"Message on WhatsApp",
         ctaPrices:"See pricing",
         ctaPay:"Pay",
         whats:"WhatsApp:",
@@ -434,6 +456,8 @@
         improveTitle:"What you will improve",
         improveEN:"English",
         improveES:"Spanish",
+        en1:"Speaking confidence", en2:"Listening comprehension", en3:"Pronunciation", en4:"Everyday vocabulary", en5:"Real conversations", en6:"Simple grammar (only what you need)",
+        es1:"Confidence speaking", es2:"Listening skills", es3:"Pronunciation", es4:"Everyday vocabulary", es5:"Real conversation", es6:"Simple, useful grammar",
         improveNote:"No pressure. Step by step. Real progress.",
         expTitle:"Experience",
         expAUS:"Australia",
@@ -472,7 +496,7 @@
 
     function setLang(lang){
       const dict = i18n[lang] || i18n.es;
-      document.documentElement.lang = (lang === "en") ? "en" : "es";
+      document.documentElement.lang = lang === "en" ? "en" : "es";
 
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
@@ -487,13 +511,15 @@
 
       document.getElementById("btnES").classList.toggle("active", lang==="es");
       document.getElementById("btnEN").classList.toggle("active", lang==="en");
+
       localStorage.setItem("siteLang", lang);
     }
 
     document.getElementById("btnES").addEventListener("click", ()=>setLang("es"));
     document.getElementById("btnEN").addEventListener("click", ()=>setLang("en"));
 
-    setLang(localStorage.getItem("siteLang") || "es");
+    const saved = localStorage.getItem("siteLang") || "es";
+    setLang(saved);
   </script>
 </body>
 </html>
