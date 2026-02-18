@@ -21,19 +21,24 @@
       --shadow:0 10px 30px rgba(2,6,23,.08);
       --radius:18px;
 
-      /* Ajustes de fotos (tocá solo esto si querés) */
-      --photoH: 300px;          /* más alto = se ve “más larga” */
-      --ausZoom: 1.04;          /* 1.00 = casi sin zoom */
+      /* === FOTO: controles fáciles ===
+         Si querés “más foto” (menos recorte): bajá el scale.
+         Si querés subir/bajar el encuadre: cambiá el object-position Y.
+      */
+      --ausScale: 1.02;
       --ausPosX: 50%;
-      --ausPosY: 36%;           /* más bajo = más arena / más alto = más cielo */
-      --proZoom: 1.02;
-      --proPosX: 55%;
-      --proPosY: 32%;
+      --ausPosY: 42%;
+
+      --proScale: 1.01;
+      --proPosX: 50%;
+      --proPosY: 38%;
     }
+
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
     a{color:inherit}
     .wrap{max-width:980px;margin:0 auto;padding:18px}
+
     .hero{
       position:relative;
       border-radius:28px;
@@ -78,6 +83,7 @@
     .btn.primary{background:var(--accent);color:#111827}
     .btn.secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.18)}
     .hero .meta{margin-top:14px;color:rgba(255,255,255,.80);font-size:14px}
+
     .section{padding:18px 0}
     .card{
       background:var(--card);
@@ -101,7 +107,7 @@
       padding:18px;
     }
     .photoFrame{
-      height:var(--photoH);
+      height:300px;              /* un poco más alto = más “largo” visual */
       border-radius:16px;
       overflow:hidden;
       background:#e9eefc;
@@ -116,15 +122,13 @@
       transform-origin:center;
     }
 
-    /* Ajuste Australia */
+    /* Ajustes finos por foto (menos recorte que antes) */
     .photoFrame img.photo-beach{
-      transform:scale(var(--ausZoom));
+      transform:scale(var(--ausScale));
       object-position:var(--ausPosX) var(--ausPosY);
     }
-
-    /* Ajuste Profesional */
     .photoFrame img.photo-office{
-      transform:scale(var(--proZoom));
+      transform:scale(var(--proScale));
       object-position:var(--proPosX) var(--proPosY);
     }
 
@@ -157,7 +161,6 @@
       <div class="topbar">
         <span class="badge" data-i18n="badge">Valencia • Online</span>
 
-        <!-- Language toggle (no images needed) -->
         <div class="langswitch" aria-label="Language switch">
           <button class="langbtn active" id="btnES" type="button" title="Español">🇪🇸</button>
           <span style="opacity:.65">|</span>
@@ -175,7 +178,8 @@
       </div>
 
       <div class="meta">
-        <span data-i18n="whats">WhatsApp:</span> <a href="tel:+34632155215" style="color:#fff;text-decoration:underline">+34 632 155 215</a>
+        <span data-i18n="whats">WhatsApp:</span>
+        <a href="tel:+34632155215" style="color:#fff;text-decoration:underline">+34 632 155 215</a>
       </div>
     </header>
 
@@ -231,7 +235,7 @@
       <h2 data-i18n="expTitle">Experiencia</h2>
 
       <div class="grid2">
-        <!-- LEFT: Australia (beach hut) -->
+        <!-- LEFT: Australia -->
         <div class="card photoCard">
           <div class="photoWrap">
             <div class="photoFrame">
@@ -244,7 +248,7 @@
           </div>
         </div>
 
-        <!-- RIGHT: Professional (office) -->
+        <!-- RIGHT: Professional -->
         <div class="card photoCard">
           <div class="photoWrap">
             <div class="photoFrame">
@@ -297,7 +301,7 @@
       </div>
     </section>
 
-    <!-- PRICING (DUAL CURRENCY) -->
+    <!-- PRICING -->
     <section class="section" id="pricing">
       <h2 data-i18n="priceTitle">Precios</h2>
 
@@ -402,12 +406,9 @@
   </div>
 
   <script>
-    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // WhatsApp message (ES / EN)
     const WA_NUMBER = "34632155215";
-
     const waMsg = {
       es: "Hola David! Quiero reservar una clase. Me interesa: (1) Prueba gratis / (2) Clase individual / (3) Pack. Mi nivel es: ____. Mis objetivos son: ____. Estoy disponible en estos horarios: ____.",
       en: "Hi David! I'd like to book a lesson. I'm interested in: (1) Free trial / (2) Single class / (3) Pack. My level is: ____. My goals are: ____. My available times are: ____."
@@ -418,13 +419,12 @@
       return "https://wa.me/" + WA_NUMBER + "?text=" + text;
     }
 
-    // i18n dictionary
     const i18n = {
       es: {
         badge:"Valencia • Online",
         h1:"English & Spanish Valencia",
         heroLine:"Conversación real • Aprendizaje práctico • Vida diaria",
-        ctaWA:"WhatsApp",
+        ctaWA:"Contactar por WhatsApp",
         ctaPrices:"Ver precios",
         ctaPay:"Pagar",
         whats:"WhatsApp:",
@@ -474,7 +474,7 @@
         badge:"Valencia • Online",
         h1:"English & Spanish Valencia",
         heroLine:"Real conversation • Practical learning • Daily life",
-        ctaWA:"WhatsApp",
+        ctaWA:"Message on WhatsApp",
         ctaPrices:"See pricing",
         ctaPay:"Pay",
         whats:"WhatsApp:",
@@ -531,14 +531,12 @@
         if(dict[key]) el.textContent = dict[key];
       });
 
-      // WhatsApp links
       const waLink = buildWaLink(lang);
       const top = document.getElementById("waTop");
       const bottom = document.getElementById("waBottom");
       if(top) top.href = waLink;
       if(bottom) bottom.href = waLink;
 
-      // Toggle button state
       document.getElementById("btnES").classList.toggle("active", lang==="es");
       document.getElementById("btnEN").classList.toggle("active", lang==="en");
 
@@ -548,7 +546,6 @@
     document.getElementById("btnES").addEventListener("click", ()=>setLang("es"));
     document.getElementById("btnEN").addEventListener("click", ()=>setLang("en"));
 
-    // Init
     const saved = localStorage.getItem("siteLang") || "es";
     setLang(saved);
   </script>
