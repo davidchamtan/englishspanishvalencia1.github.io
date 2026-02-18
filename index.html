@@ -3,472 +3,554 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>English & Spanish Valencia</title>
-  <meta name="description" content="Clases de inglés y español en Valencia y online. Enfoque en conversación real, pronunciación y situaciones cotidianas." />
+  <title>English & Spanish Valencia | David</title>
+  <meta name="description" content="Clases de inglés y español en Valencia u online. Prueba gratis. Reserva por WhatsApp." />
 
   <style>
     :root{
-      --bg:#f5f7ff;
-      --card:#ffffff;
+      --bg:#f6f7fb;
       --text:#0f172a;
-      --muted:#475569;
-      --brand:#ff8a00;
-      --brand2:#1f3b82;
-      --shadow:0 16px 40px rgba(15,23,42,.10);
-      --radius:22px;
-      --max:1100px;
+      --muted:#64748b;
+      --line:#e5e7eb;
+      --card:#ffffff;
+      --hero1:#1f2f6b;
+      --hero2:#263b86;
+      --accent:#f59e0b;
+      --btn:#0f172a;
+      --btnText:#ffffff;
+      --shadow:0 10px 30px rgba(2,6,23,.08);
+      --radius:18px;
+
+      /* Ajustes de fotos (tocá solo esto si querés) */
+      --photoH: 300px;          /* más alto = se ve “más larga” */
+      --ausZoom: 1.04;          /* 1.00 = casi sin zoom */
+      --ausPosX: 50%;
+      --ausPosY: 36%;           /* más bajo = más arena / más alto = más cielo */
+      --proZoom: 1.02;
+      --proPosX: 55%;
+      --proPosY: 32%;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background: radial-gradient(1100px 700px at 20% -10%, #e7ecff 0, transparent 60%),
-                  radial-gradient(900px 600px at 80% 10%, #eef6ff 0, transparent 55%),
-                  var(--bg);
-    }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 40px}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:10px 2px;
-    }
-    .brandname{font-weight:800; letter-spacing:.2px}
-    .lang{
-      display:flex; align-items:center; gap:10px;
-      background:rgba(255,255,255,.8);
-      border:1px solid rgba(15,23,42,.08);
-      padding:8px 10px;
-      border-radius:999px;
-      box-shadow:0 8px 24px rgba(15,23,42,.08);
-    }
-    .lang button{
-      border:0; background:transparent; cursor:pointer;
-      font-weight:700; padding:6px 10px; border-radius:999px;
-      opacity:.7;
-    }
-    .lang button.active{background:rgba(15,23,42,.08); opacity:1}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
+    a{color:inherit}
+    .wrap{max-width:980px;margin:0 auto;padding:18px}
     .hero{
-      margin-top:10px;
-      background: radial-gradient(900px 500px at 20% 20%, rgba(255,255,255,.16) 0, transparent 55%),
-                  linear-gradient(135deg, #14306e 0%, #1f3b82 45%, #0b1f4d 100%);
-      color:#fff;
-      border-radius:28px;
-      padding:28px 18px;
-      box-shadow:0 18px 55px rgba(15,23,42,.18);
-      overflow:hidden;
       position:relative;
+      border-radius:28px;
+      padding:34px 22px 22px;
+      background:linear-gradient(135deg,var(--hero1),var(--hero2));
+      color:#fff;
+      box-shadow:var(--shadow);
+      overflow:hidden;
     }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.18);
-      font-weight:700;
-      font-size:14px;
+    .hero .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;font-size:13px;color:rgba(255,255,255,.92);
+      background:rgba(255,255,255,.06)
     }
-    .h1{
-      margin:14px 0 6px;
-      font-size:44px;
-      line-height:1.05;
-      letter-spacing:-.6px;
-      font-weight:900;
-    }
-    .sub{
-      margin:0 0 18px;
-      color:rgba(255,255,255,.86);
-      font-size:16px;
-      font-weight:600;
-    }
-    .cta{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:12px 16px;
-      border-radius:14px;
-      font-weight:800;
-      border:1px solid rgba(255,255,255,.18);
-      cursor:pointer;
+    .langswitch{
+      display:flex;align-items:center;gap:10px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
       user-select:none;
     }
-    .btn.primary{
-      background:var(--brand);
-      color:#1b1405;
-      border-color:rgba(0,0,0,.08);
-      box-shadow:0 12px 28px rgba(255,138,0,.28);
+    .langbtn{
+      appearance:none;border:0;background:transparent;color:#fff;
+      font-size:16px;cursor:pointer;line-height:1;
+      padding:6px;border-radius:10px;
+      opacity:.85;
     }
-    .btn.ghost{
-      background:rgba(255,255,255,.14);
-      color:#fff;
-      backdrop-filter: blur(8px);
+    .langbtn.active{background:rgba(255,255,255,.18);opacity:1}
+    .hero h1{margin:6px 0 10px;font-size:40px;letter-spacing:-.02em}
+    .hero p{margin:0;color:rgba(255,255,255,.90)}
+    .hero .sub{margin-top:6px;color:rgba(255,255,255,.85);font-size:16px}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;border-radius:14px;
+      text-decoration:none;font-weight:700;
+      border:1px solid transparent;
+      min-width:160px;
     }
-
-    .section{margin-top:26px}
-    .title{
-      font-size:40px;
-      letter-spacing:-.5px;
-      margin:0 0 12px;
-      font-weight:900;
-    }
+    .btn.primary{background:var(--accent);color:#111827}
+    .btn.secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.18)}
+    .hero .meta{margin-top:14px;color:rgba(255,255,255,.80);font-size:14px}
+    .section{padding:18px 0}
     .card{
       background:var(--card);
+      border:1px solid var(--line);
       border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      border:1px solid rgba(15,23,42,.06);
+      padding:16px;
+      box-shadow:0 8px 20px rgba(2,6,23,.05);
     }
-    .about{
+    h2{margin:18px 0 10px;font-size:28px;letter-spacing:-.02em}
+    .muted{color:var(--muted)}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    ul{margin:10px 0 0;padding-left:18px}
+    .pillnote{margin-top:10px;color:var(--muted);font-size:14px}
+
+    /* Experience photo cards */
+    .photoCard{padding:0;overflow:hidden}
+    .photoWrap{
+      background:#dbe5ff;
+      border-radius:var(--radius);
       padding:18px;
-      color:var(--muted);
-      font-weight:600;
-      line-height:1.35;
     }
-
-    /* grids */
-    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    @media (max-width:900px){
-      .h1{font-size:36px}
-      .title{font-size:34px}
-      .grid3{grid-template-columns:1fr}
-    }
-    @media (max-width:720px){
-      .grid2{grid-template-columns:1fr}
-    }
-
-    /* Experience cards with photos */
-    .expCard{overflow:hidden}
-    .imgBox{
-      height:280px;               /* 👈 “más largas” */
-      background:#dfe7ff;
-      border-radius:18px 18px 0 0;
+    .photoFrame{
+      height:var(--photoH);
+      border-radius:16px;
       overflow:hidden;
+      background:#e9eefc;
+      display:flex;align-items:center;justify-content:center;
     }
-    .imgBox img{
+    .photoFrame img{
       width:100%;
       height:100%;
-      display:block;
       object-fit:cover;
-      /* 👇 clave para que NO recorte tanto al centro */
-      object-position:50% 35%;
-      transform:scale(1.02);
+      display:block;
+      border-radius:14px;
+      transform-origin:center;
     }
-    /* Ajustes finos por foto (para que se vea mejor) */
-    .imgBox.australia img{ object-position:50% 42%; }      /* más arena/casa */
-    .imgBox.professional img{ object-position:50% 28%; }   /* un poco más arriba */
 
-    .expBody{padding:14px 16px 16px}
-    .expH{margin:0; font-size:26px; font-weight:900}
-    .expP{margin:6px 0 0; color:var(--muted); font-weight:650}
-
-    /* How it works */
-    .step{padding:16px 16px}
-    .step h3{margin:0; font-size:20px; font-weight:900}
-    .step p{margin:6px 0 0; color:var(--muted); font-weight:650}
-
-    /* Testimonials */
-    .quote{padding:16px}
-    .quote p{margin:0; font-weight:750; color:#1f2937}
-    .quote span{display:block; margin-top:8px; color:var(--muted); font-weight:800}
-
-    /* Pricing */
-    .priceCard{padding:16px}
-    .row{display:flex; align-items:flex-end; justify-content:space-between; gap:12px}
-    .priceTitle{margin:0; font-size:18px; font-weight:900}
-    .priceSub{margin:2px 0 0; color:var(--muted); font-weight:700}
-    .priceVal{font-size:22px; font-weight:950}
-    .priceNote{
-      margin:10px 0 0;
-      color:var(--muted);
-      font-weight:650;
+    /* Ajuste Australia */
+    .photoFrame img.photo-beach{
+      transform:scale(var(--ausZoom));
+      object-position:var(--ausPosX) var(--ausPosY);
     }
-    .actions{margin-top:14px; display:flex; gap:12px; flex-wrap:wrap}
-    .foot{
-      margin-top:28px;
-      text-align:center;
-      color:rgba(15,23,42,.55);
-      font-weight:700;
+
+    /* Ajuste Profesional */
+    .photoFrame img.photo-office{
+      transform:scale(var(--proZoom));
+      object-position:var(--proPosX) var(--proPosY);
+    }
+
+    .photoBody{padding:14px 16px 16px}
+    .photoTitle{margin:0;font-size:22px}
+    .photoDesc{margin:6px 0 0;color:var(--muted)}
+
+    .priceBox{display:flex;flex-direction:column;gap:6px}
+    .priceTitle{font-size:18px;font-weight:800;margin:0}
+    .priceSmall{color:var(--muted);font-size:13px;margin:0}
+    .priceDual{font-weight:800}
+    .divider{height:1px;background:var(--line);margin:10px 0}
+    footer{padding:22px 0;color:var(--muted);font-size:13px;text-align:center}
+
+    @media (max-width:860px){
+      .hero h1{font-size:34px}
+      .grid2{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      .photoFrame{height:280px}
+      .btn{min-width:unset;flex:1}
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="topbar">
-      <div class="brandname">valenciatutor</div>
 
-      <div class="lang" aria-label="Language toggle">
-        <button id="btnES" class="active" type="button">🇪🇸</button>
-        <div style="opacity:.35;font-weight:900">|</div>
-        <button id="btnEN" type="button">🇬🇧</button>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="topbar">
+        <span class="badge" data-i18n="badge">Valencia • Online</span>
+
+        <!-- Language toggle (no images needed) -->
+        <div class="langswitch" aria-label="Language switch">
+          <button class="langbtn active" id="btnES" type="button" title="Español">🇪🇸</button>
+          <span style="opacity:.65">|</span>
+          <button class="langbtn" id="btnEN" type="button" title="English">🇬🇧</button>
+        </div>
       </div>
-    </div>
 
-    <header class="hero card">
-      <div class="pill" data-i18n="pill">Valencia • Online</div>
-      <h1 class="h1" data-i18n="h1">English & Spanish Valencia</h1>
-      <p class="sub" data-i18n="sub">Conversación real • Aprendizaje práctico • Vida diaria</p>
+      <h1 data-i18n="h1">English & Spanish Valencia</h1>
+      <p class="sub" data-i18n="heroLine">Conversación real • Aprendizaje práctico • Vida diaria</p>
 
       <div class="cta">
-        <a class="btn primary" id="whatsBtn" target="_blank" rel="noopener">
-          💬 <span data-i18n="ctaWhats">Contactar por WhatsApp</span>
-        </a>
-        <a class="btn ghost" href="#precios">
-          💶 <span data-i18n="ctaPrices">Ver precios</span>
-        </a>
+        <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener" data-i18n="ctaWA">WhatsApp</a>
+        <a class="btn secondary" href="#pricing" data-i18n="ctaPrices">Ver precios</a>
+        <a class="btn secondary" href="#pay" data-i18n="ctaPay">Pagar</a>
+      </div>
+
+      <div class="meta">
+        <span data-i18n="whats">WhatsApp:</span> <a href="tel:+34632155215" style="color:#fff;text-decoration:underline">+34 632 155 215</a>
       </div>
     </header>
 
-    <section class="section">
-      <h2 class="title" data-i18n="aboutTitle">Sobre las clases</h2>
-      <div class="card about" data-i18n="aboutText">
-        Clases de inglés y español en Valencia u online. Enfoque en conversación real para situaciones cotidianas: trabajo, viajes, entrevistas y vida diaria.
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <h2 data-i18n="aboutTitle">Sobre las clases</h2>
+      <div class="card">
+        <p style="margin:0" data-i18n="aboutText">
+          Clases de inglés y español en Valencia u online. Enfoque en conversación real para situaciones cotidianas: trabajo, viajes,
+          entrevistas y vida diaria.
+        </p>
+        <p class="pillnote" style="margin-bottom:0" data-i18n="aboutNote">
+          Aprendés para usarlo desde el primer día, sin vueltas.
+        </p>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="title" data-i18n="expTitle">Experiencia</h2>
-
-      <!-- IMPORTANTE: orden correcto (Australia a la izquierda, Profesional a la derecha) -->
+    <!-- IMPROVE -->
+    <section class="section" id="improve">
+      <h2 data-i18n="improveTitle">Qué vas a mejorar</h2>
       <div class="grid2">
-        <div class="card expCard">
-          <div class="imgBox australia">
-            <img src="./australia.jpeg" alt="Australia experience photo" loading="lazy">
-          </div>
-          <div class="expBody">
-            <h3 class="expH" data-i18n="exp1h">Australia</h3>
-            <p class="expP" data-i18n="exp1p">Experiencia internacional enseñando idioma en contexto real.</p>
-          </div>
+        <div class="card">
+          <strong data-i18n="improveEN">English</strong>
+          <ul>
+            <li data-i18n="en1">Speaking confidence</li>
+            <li data-i18n="en2">Listening comprehension</li>
+            <li data-i18n="en3">Pronunciation</li>
+            <li data-i18n="en4">Everyday vocabulary</li>
+            <li data-i18n="en5">Real conversations</li>
+            <li data-i18n="en6">Simple grammar (only what you need)</li>
+          </ul>
         </div>
 
-        <div class="card expCard">
-          <div class="imgBox professional">
-            <img src="./professional.jpeg" alt="Professional photo" loading="lazy">
-          </div>
-          <div class="expBody">
-            <h3 class="expH" data-i18n="exp2h">Profesional</h3>
-            <p class="expP" data-i18n="exp2p">Clases claras, organizadas y efectivas.</p>
-          </div>
+        <div class="card">
+          <strong data-i18n="improveES">Español</strong>
+          <ul>
+            <li data-i18n="es1">Confianza al hablar</li>
+            <li data-i18n="es2">Comprensión auditiva</li>
+            <li data-i18n="es3">Pronunciación</li>
+            <li data-i18n="es4">Vocabulario cotidiano</li>
+            <li data-i18n="es5">Conversación real</li>
+            <li data-i18n="es6">Gramática simple y útil</li>
+          </ul>
         </div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2 class="title" data-i18n="howTitle">Cómo funciona</h2>
-      <div class="grid3">
-        <div class="card step">
-          <h3 data-i18n="s1h">1) Prueba gratis (20 min)</h3>
-          <p data-i18n="s1p">Evaluación de nivel y objetivos.</p>
-        </div>
-        <div class="card step">
-          <h3 data-i18n="s2h">2) Plan personalizado</h3>
-          <p data-i18n="s2p">Adaptado a lo que necesitás.</p>
-        </div>
-        <div class="card step">
-          <h3 data-i18n="s3h">3) Progreso semanal</h3>
-          <p data-i18n="s3p">Correcciones y práctica real.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="title" data-i18n="testTitle">Testimonios</h2>
-      <div class="grid3">
-        <div class="card quote">
-          <p data-i18n="t1q">Me explicó simple y sin presión. En pocas semanas pude hablar mejor.</p>
-          <span data-i18n="t1a">— María</span>
-        </div>
-        <div class="card quote">
-          <p data-i18n="t2q">Clases prácticas y conversación real. Muy útil.</p>
-          <span data-i18n="t2a">— Ruby</span>
-        </div>
-        <div class="card quote">
-          <p data-i18n="t3q">Me ayudó con pronunciación y entrevistas.</p>
-          <span data-i18n="t3a">— Martínez</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="precios">
-      <h2 class="title" data-i18n="pricesTitle">Precios</h2>
-
-      <div class="grid3">
-        <div class="card priceCard">
-          <div class="row">
-            <div>
-              <p class="priceTitle" data-i18n="p1t">Clase individual</p>
-              <p class="priceSub" data-i18n="p1s">50–60 min</p>
-            </div>
-            <div class="priceVal">15€ (≈ A$25)</div>
-          </div>
-        </div>
-
-        <div class="card priceCard">
-          <div class="row">
-            <div>
-              <p class="priceTitle" data-i18n="p2t">Pack 5</p>
-              <p class="priceSub" data-i18n="p2s">Incluye bonus</p>
-            </div>
-            <div class="priceVal">55€ (≈ A$91)</div>
-          </div>
-        </div>
-
-        <div class="card priceCard">
-          <div class="row">
-            <div>
-              <p class="priceTitle" data-i18n="p3t">Pack 12</p>
-              <p class="priceSub" data-i18n="p3s">Incluye bonus</p>
-            </div>
-            <div class="priceVal">130€ (≈ A$215)</div>
-          </div>
-        </div>
-      </div>
-
-      <p class="priceNote" data-i18n="payNote">
-        Pagos: efectivo (presencial) o Revolut. Los montos en AUD son aproximados (el tipo de cambio puede variar).
+      <p class="muted" style="margin:10px 0 0" data-i18n="improveNote">
+        Sin presión. Paso a paso. Progreso real.
       </p>
+    </section>
 
-      <div class="actions">
-        <a class="btn primary" href="https://revolut.me/valenciatutor" target="_blank" rel="noopener">
-          💳 <span data-i18n="payRevolut">Pagar por Revolut</span>
-        </a>
-        <a class="btn ghost" id="bookBtn" target="_blank" rel="noopener">
-          📅 <span data-i18n="bookWhats">Reservar por WhatsApp</span>
-        </a>
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <h2 data-i18n="expTitle">Experiencia</h2>
+
+      <div class="grid2">
+        <!-- LEFT: Australia (beach hut) -->
+        <div class="card photoCard">
+          <div class="photoWrap">
+            <div class="photoFrame">
+              <img class="photo-beach" src="australia.jpeg" alt="Australia photo" />
+            </div>
+          </div>
+          <div class="photoBody">
+            <p class="photoTitle" data-i18n="expAUS">Australia</p>
+            <p class="photoDesc" data-i18n="expAUSDesc">Experiencia internacional enseñando idioma en contexto real.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: Professional (office) -->
+        <div class="card photoCard">
+          <div class="photoWrap">
+            <div class="photoFrame">
+              <img class="photo-office" src="professional.jpeg" alt="Professional photo" />
+            </div>
+          </div>
+          <div class="photoBody">
+            <p class="photoTitle" data-i18n="expPRO">Profesional</p>
+            <p class="photoDesc" data-i18n="expPRODesc">Clases claras, organizadas y efectivas.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <div class="foot">© 2026 David — Valencia. <span data-i18n="foot">Aprender para usar, no para memorizar.</span></div>
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <h2 data-i18n="howTitle">Cómo funciona</h2>
+      <div class="grid3">
+        <div class="card">
+          <strong data-i18n="how1T">1) Prueba gratis (20 min)</strong>
+          <p class="muted" style="margin:8px 0 0" data-i18n="how1D">Evaluación de nivel y objetivos.</p>
+        </div>
+        <div class="card">
+          <strong data-i18n="how2T">2) Plan personalizado</strong>
+          <p class="muted" style="margin:8px 0 0" data-i18n="how2D">Adaptado a lo que necesitás.</p>
+        </div>
+        <div class="card">
+          <strong data-i18n="how3T">3) Progreso semanal</strong>
+          <p class="muted" style="margin:8px 0 0" data-i18n="how3D">Correcciones y práctica real.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials">
+      <h2 data-i18n="testTitle">Testimonios</h2>
+      <div class="grid3">
+        <div class="card">
+          <p style="margin:0;font-style:italic" data-i18n="t1">“Me explicó simple y sin presión. En pocas semanas pude hablar mejor.”</p>
+          <p class="muted" style="margin:10px 0 0">— María</p>
+        </div>
+        <div class="card">
+          <p style="margin:0;font-style:italic" data-i18n="t2">“Clases prácticas y conversación real. Muy útil.”</p>
+          <p class="muted" style="margin:10px 0 0">— Ruby</p>
+        </div>
+        <div class="card">
+          <p style="margin:0;font-style:italic" data-i18n="t3">“Me ayudó con pronunciación y entrevistas.”</p>
+          <p class="muted" style="margin:10px 0 0">— Martínez</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING (DUAL CURRENCY) -->
+    <section class="section" id="pricing">
+      <h2 data-i18n="priceTitle">Precios</h2>
+
+      <div class="grid2">
+        <div class="card priceBox">
+          <p class="priceTitle" data-i18n="p1T">Prueba (20 min) — Gratis</p>
+          <p class="priceSmall" data-i18n="p1D">Online o presencial • Evaluación + objetivos</p>
+        </div>
+
+        <div class="card priceBox">
+          <p class="priceTitle" data-i18n="p2T">Clase individual (50–60 min)</p>
+          <p class="priceSmall">
+            <span class="priceDual">15€</span>
+            <span class="muted"> • </span>
+            <span class="priceDual">A$25</span>
+          </p>
+          <p class="priceSmall" data-i18n="p2D">Conversación + correcciones + práctica</p>
+        </div>
+
+        <div class="card priceBox">
+          <p class="priceTitle" data-i18n="p3T">Pack 5</p>
+          <p class="priceSmall">
+            <span class="priceDual">55€</span>
+            <span class="muted"> • </span>
+            <span class="priceDual">A$90</span>
+          </p>
+          <p class="priceSmall" data-i18n="p3D">Incluye bonus</p>
+        </div>
+
+        <div class="card priceBox">
+          <p class="priceTitle" data-i18n="p4T">Pack 12</p>
+          <p class="priceSmall">
+            <span class="priceDual">130€</span>
+            <span class="muted"> • </span>
+            <span class="priceDual">A$215</span>
+          </p>
+          <p class="priceSmall" data-i18n="p4D">Incluye bonus</p>
+        </div>
+      </div>
+
+      <p class="muted" style="margin:10px 0 0" data-i18n="priceNote">
+        Si el pago te aparece en AUD, podés pagar en AUD equivalente (mismo servicio). También acepto efectivo en Valencia.
+      </p>
+    </section>
+
+    <!-- PAYMENT -->
+    <section class="section" id="pay">
+      <h2 data-i18n="payTitle">Pago</h2>
+      <div class="card">
+        <p style="margin:0" data-i18n="payText">
+          Podés pagar en efectivo (presencial) o por Revolut.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="cta" style="margin-top:0">
+          <a class="btn primary" href="https://revolut.me/valenciatutor" target="_blank" rel="noopener" data-i18n="payBtn">
+            Pagar por Revolut
+          </a>
+          <a class="btn secondary" href="#book" data-i18n="bookBtn2">Reservar</a>
+        </div>
+
+        <p class="muted" style="margin:12px 0 0" data-i18n="paySmall">
+          Consejo: al pagar, escribí una nota (por ejemplo: “Clase individual” / “Pack 5”).
+        </p>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="section" id="book">
+      <h2 data-i18n="bookTitle">Reservar clase</h2>
+      <div class="card">
+        <p style="margin:0" data-i18n="bookText">
+          Escribime por WhatsApp y coordinamos. Podés pedir prueba gratis o una clase.
+        </p>
+        <p class="muted" style="margin:10px 0 0" data-i18n="bookHint">
+          En el mensaje podés copiar y completar tus horarios disponibles: “Estoy disponible: ___”.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" id="waBottom" href="#" target="_blank" rel="noopener" data-i18n="bookBtn">
+            Reservar por WhatsApp
+          </a>
+          <a class="btn secondary" href="#pricing" data-i18n="bookBtnPrices">Ver precios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <h2 data-i18n="contactTitle">Contacto</h2>
+      <div class="card">
+        <p style="margin:0"><strong>English & Spanish Valencia</strong></p>
+        <p class="muted" style="margin:8px 0 0" data-i18n="contactLine">Valencia • Online</p>
+        <p class="muted" style="margin:6px 0 0">WhatsApp: +34 632 155 215</p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> David — Valencia. <span data-i18n="footerLine">Aprender para usar, no para memorizar.</span>
+    </footer>
   </div>
 
   <script>
-    // ====== CONFIG (cambiá SOLO esto si querés) ======
-    const WHATSAPP_NUMBER = "34600000000"; // 👈 poné tu número con código país, sin + ni espacios. Ej: 346XXXXXXXX
-    const REVOLUT_LINK = "https://revolut.me/valenciatutor";
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Mensaje WhatsApp (ES/EN)
-    const MSG_ES =
-`Hola David! Quiero reservar una clase.
-• Idioma: Inglés / Español
-• Modalidad: Online / Presencial (Valencia)
-• Objetivo:
-• Disponibilidad (días y horas):
-¿Tenés una prueba gratis de 20 min?`;
+    // WhatsApp message (ES / EN)
+    const WA_NUMBER = "34632155215";
 
-    const MSG_EN =
-`Hi David! I'd like to book a lesson.
-• Language: English / Spanish
-• Format: Online / In-person (Valencia)
-• Goal:
-• Availability (days & times):
-Do you offer a free 20-min trial?`;
+    const waMsg = {
+      es: "Hola David! Quiero reservar una clase. Me interesa: (1) Prueba gratis / (2) Clase individual / (3) Pack. Mi nivel es: ____. Mis objetivos son: ____. Estoy disponible en estos horarios: ____.",
+      en: "Hi David! I'd like to book a lesson. I'm interested in: (1) Free trial / (2) Single class / (3) Pack. My level is: ____. My goals are: ____. My available times are: ____."
+    };
 
-    // ====== i18n text ======
+    function buildWaLink(lang){
+      const text = encodeURIComponent(waMsg[lang] || waMsg.es);
+      return "https://wa.me/" + WA_NUMBER + "?text=" + text;
+    }
+
+    // i18n dictionary
     const i18n = {
       es: {
-        pill:"Valencia • Online",
+        badge:"Valencia • Online",
         h1:"English & Spanish Valencia",
-        sub:"Conversación real • Aprendizaje práctico • Vida diaria",
-        ctaWhats:"Contactar por WhatsApp",
+        heroLine:"Conversación real • Aprendizaje práctico • Vida diaria",
+        ctaWA:"WhatsApp",
         ctaPrices:"Ver precios",
+        ctaPay:"Pagar",
+        whats:"WhatsApp:",
         aboutTitle:"Sobre las clases",
         aboutText:"Clases de inglés y español en Valencia u online. Enfoque en conversación real para situaciones cotidianas: trabajo, viajes, entrevistas y vida diaria.",
+        aboutNote:"Aprendés para usarlo desde el primer día, sin vueltas.",
+        improveTitle:"Qué vas a mejorar",
+        improveEN:"English",
+        improveES:"Español",
+        en1:"Speaking confidence", en2:"Listening comprehension", en3:"Pronunciation", en4:"Everyday vocabulary", en5:"Real conversations", en6:"Simple grammar (only what you need)",
+        es1:"Confianza al hablar", es2:"Comprensión auditiva", es3:"Pronunciación", es4:"Vocabulario cotidiano", es5:"Conversación real", es6:"Gramática simple y útil",
+        improveNote:"Sin presión. Paso a paso. Progreso real.",
         expTitle:"Experiencia",
-        exp1h:"Australia",
-        exp1p:"Experiencia internacional enseñando idioma en contexto real.",
-        exp2h:"Profesional",
-        exp2p:"Clases claras, organizadas y efectivas.",
+        expAUS:"Australia",
+        expAUSDesc:"Experiencia internacional enseñando idioma en contexto real.",
+        expPRO:"Profesional",
+        expPRODesc:"Clases claras, organizadas y efectivas.",
         howTitle:"Cómo funciona",
-        s1h:"1) Prueba gratis (20 min)",
-        s1p:"Evaluación de nivel y objetivos.",
-        s2h:"2) Plan personalizado",
-        s2p:"Adaptado a lo que necesitás.",
-        s3h:"3) Progreso semanal",
-        s3p:"Correcciones y práctica real.",
+        how1T:"1) Prueba gratis (20 min)", how1D:"Evaluación de nivel y objetivos.",
+        how2T:"2) Plan personalizado", how2D:"Adaptado a lo que necesitás.",
+        how3T:"3) Progreso semanal", how3D:"Correcciones y práctica real.",
         testTitle:"Testimonios",
-        t1q:"Me explicó simple y sin presión. En pocas semanas pude hablar mejor.",
-        t1a:"— María",
-        t2q:"Clases prácticas y conversación real. Muy útil.",
-        t2a:"— Ruby",
-        t3q:"Me ayudó con pronunciación y entrevistas.",
-        t3a:"— Martínez",
-        pricesTitle:"Precios",
-        p1t:"Clase individual",
-        p1s:"50–60 min",
-        p2t:"Pack 5",
-        p2s:"Incluye bonus",
-        p3t:"Pack 12",
-        p3s:"Incluye bonus",
-        payNote:"Pagos: efectivo (presencial) o Revolut. Los montos en AUD son aproximados (el tipo de cambio puede variar).",
-        payRevolut:"Pagar por Revolut",
-        bookWhats:"Reservar por WhatsApp",
-        foot:"Aprender para usar, no para memorizar."
+        t1:"“Me explicó simple y sin presión. En pocas semanas pude hablar mejor.”",
+        t2:"“Clases prácticas y conversación real. Muy útil.”",
+        t3:"“Me ayudó con pronunciación y entrevistas.”",
+        priceTitle:"Precios",
+        p1T:"Prueba (20 min) — Gratis", p1D:"Online o presencial • Evaluación + objetivos",
+        p2T:"Clase individual (50–60 min)", p2D:"Conversación + correcciones + práctica",
+        p3T:"Pack 5", p3D:"Incluye bonus",
+        p4T:"Pack 12", p4D:"Incluye bonus",
+        priceNote:"Si el pago te aparece en AUD, podés pagar en AUD equivalente (mismo servicio). También acepto efectivo en Valencia.",
+        payTitle:"Pago",
+        payText:"Podés pagar en efectivo (presencial) o por Revolut.",
+        payBtn:"Pagar por Revolut",
+        paySmall:"Consejo: al pagar, escribí una nota (por ejemplo: “Clase individual” / “Pack 5”).",
+        bookTitle:"Reservar clase",
+        bookText:"Escribime por WhatsApp y coordinamos. Podés pedir prueba gratis o una clase.",
+        bookHint:"En el mensaje podés copiar y completar tus horarios disponibles: “Estoy disponible: ___”.",
+        bookBtn:"Reservar por WhatsApp",
+        bookBtn2:"Reservar",
+        bookBtnPrices:"Ver precios",
+        contactTitle:"Contacto",
+        contactLine:"Valencia • Online",
+        footerLine:"Aprender para usar, no para memorizar."
       },
       en: {
-        pill:"Valencia • Online",
+        badge:"Valencia • Online",
         h1:"English & Spanish Valencia",
-        sub:"Real conversation • Practical learning • Daily life",
-        ctaWhats:"Contact on WhatsApp",
-        ctaPrices:"See prices",
+        heroLine:"Real conversation • Practical learning • Daily life",
+        ctaWA:"WhatsApp",
+        ctaPrices:"See pricing",
+        ctaPay:"Pay",
+        whats:"WhatsApp:",
         aboutTitle:"About the lessons",
-        aboutText:"English and Spanish lessons in Valencia or online. Focus on real conversation for everyday situations: work, travel, interviews, and daily life.",
+        aboutText:"English and Spanish lessons in Valencia or online. Focused on real conversation for everyday situations: work, travel, interviews, and daily life.",
+        aboutNote:"You learn to use it from day one—simple and practical.",
+        improveTitle:"What you will improve",
+        improveEN:"English",
+        improveES:"Spanish",
+        en1:"Speaking confidence", en2:"Listening comprehension", en3:"Pronunciation", en4:"Everyday vocabulary", en5:"Real conversations", en6:"Simple grammar (only what you need)",
+        es1:"Confidence speaking", es2:"Listening skills", es3:"Pronunciation", es4:"Everyday vocabulary", es5:"Real conversation", es6:"Simple, useful grammar",
+        improveNote:"No pressure. Step by step. Real progress.",
         expTitle:"Experience",
-        exp1h:"Australia",
-        exp1p:"International experience teaching language in real-life context.",
-        exp2h:"Professional",
-        exp2p:"Clear, organized, and effective lessons.",
+        expAUS:"Australia",
+        expAUSDesc:"International experience teaching language in real-life context.",
+        expPRO:"Professional",
+        expPRODesc:"Clear, organized, and effective lessons.",
         howTitle:"How it works",
-        s1h:"1) Free trial (20 min)",
-        s1p:"Level check and goals.",
-        s2h:"2) Personalized plan",
-        s2p:"Adapted to what you need.",
-        s3h:"3) Weekly progress",
-        s3p:"Corrections and real practice.",
+        how1T:"1) Free trial (20 min)", how1D:"Quick level check + goals.",
+        how2T:"2) Personal plan", how2D:"Adapted to what you need.",
+        how3T:"3) Weekly progress", how3D:"Corrections and real practice.",
         testTitle:"Testimonials",
-        t1q:"Simple explanation, no pressure. In a few weeks I spoke better.",
-        t1a:"— María",
-        t2q:"Practical classes and real conversation. Very useful.",
-        t2a:"— Ruby",
-        t3q:"Helped me with pronunciation and interviews.",
-        t3a:"— Martínez",
-        pricesTitle:"Prices",
-        p1t:"Single lesson",
-        p1s:"50–60 min",
-        p2t:"Pack 5",
-        p2s:"Includes bonus",
-        p3t:"Pack 12",
-        p3s:"Includes bonus",
-        payNote:"Payments: cash (in person) or Revolut. AUD amounts are approximate (exchange rate may vary).",
-        payRevolut:"Pay with Revolut",
-        bookWhats:"Book via WhatsApp",
-        foot:"Learn to use, not to memorize."
+        t1:"“Simple explanations and no pressure. In a few weeks I spoke better.”",
+        t2:"“Practical lessons and real conversation. Very useful.”",
+        t3:"“Helped me with pronunciation and interviews.”",
+        priceTitle:"Pricing",
+        p1T:"Trial (20 min) — Free", p1D:"Online or in-person • Level check + goals",
+        p2T:"Single class (50–60 min)", p2D:"Conversation + corrections + practice",
+        p3T:"Pack 5", p3D:"Bonus included",
+        p4T:"Pack 12", p4D:"Bonus included",
+        priceNote:"If the payment page shows AUD, you can pay the AUD equivalent (same service). Cash is also accepted in Valencia.",
+        payTitle:"Payment",
+        payText:"You can pay cash (in person) or via Revolut.",
+        payBtn:"Pay with Revolut",
+        paySmall:"Tip: add a note (e.g., “Single class” / “Pack 5”).",
+        bookTitle:"Book a lesson",
+        bookText:"Message me on WhatsApp and we’ll schedule it. You can request a free trial or a lesson.",
+        bookHint:"You can paste your available times: “I’m available: ___”.",
+        bookBtn:"Book via WhatsApp",
+        bookBtn2:"Book",
+        bookBtnPrices:"See pricing",
+        contactTitle:"Contact",
+        contactLine:"Valencia • Online",
+        footerLine:"Learn to use it, not to memorize it."
       }
     };
 
-    // ====== helpers ======
     function setLang(lang){
-      document.documentElement.lang = lang;
+      const dict = i18n[lang] || i18n.es;
+      document.documentElement.lang = lang === "en" ? "en" : "es";
 
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
-        if(i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];
+        if(dict[key]) el.textContent = dict[key];
       });
 
+      // WhatsApp links
+      const waLink = buildWaLink(lang);
+      const top = document.getElementById("waTop");
+      const bottom = document.getElementById("waBottom");
+      if(top) top.href = waLink;
+      if(bottom) bottom.href = waLink;
+
+      // Toggle button state
       document.getElementById("btnES").classList.toggle("active", lang==="es");
       document.getElementById("btnEN").classList.toggle("active", lang==="en");
 
-      const msg = (lang==="en") ? MSG_EN : MSG_ES;
-      const wa = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
-
-      document.getElementById("whatsBtn").href = wa;
-      document.getElementById("bookBtn").href = wa;
+      localStorage.setItem("siteLang", lang);
     }
 
-    // ====== init ======
     document.getElementById("btnES").addEventListener("click", ()=>setLang("es"));
     document.getElementById("btnEN").addEventListener("click", ()=>setLang("en"));
 
-    // Defaults
-    setLang("es");
+    // Init
+    const saved = localStorage.getItem("siteLang") || "es";
+    setLang(saved);
   </script>
 </body>
 </html>
