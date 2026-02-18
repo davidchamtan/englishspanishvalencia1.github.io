@@ -16,29 +16,13 @@
       --hero1:#1f2f6b;
       --hero2:#263b86;
       --accent:#f59e0b;
-      --btn:#0f172a;
-      --btnText:#ffffff;
       --shadow:0 10px 30px rgba(2,6,23,.08);
       --radius:18px;
-
-      /* === FOTO: controles fáciles ===
-         Si querés “más foto” (menos recorte): bajá el scale.
-         Si querés subir/bajar el encuadre: cambiá el object-position Y.
-      */
-      --ausScale: 1.02;
-      --ausPosX: 50%;
-      --ausPosY: 42%;
-
-      --proScale: 1.01;
-      --proPosX: 50%;
-      --proPosY: 38%;
     }
-
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
     a{color:inherit}
     .wrap{max-width:980px;margin:0 auto;padding:18px}
-
     .hero{
       position:relative;
       border-radius:28px;
@@ -70,7 +54,6 @@
     }
     .langbtn.active{background:rgba(255,255,255,.18);opacity:1}
     .hero h1{margin:6px 0 10px;font-size:40px;letter-spacing:-.02em}
-    .hero p{margin:0;color:rgba(255,255,255,.90)}
     .hero .sub{margin-top:6px;color:rgba(255,255,255,.85);font-size:16px}
     .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
     .btn{
@@ -107,7 +90,7 @@
       padding:18px;
     }
     .photoFrame{
-      height:300px;              /* un poco más alto = más “largo” visual */
+      height:320px;               /* MÁS ALTO => “más larga” */
       border-radius:16px;
       overflow:hidden;
       background:#e9eefc;
@@ -119,21 +102,25 @@
       object-fit:cover;
       display:block;
       border-radius:14px;
+
+      /* Control fino (default) */
+      transform:scale(var(--zoom, 1.03));          /* menos zoom => menos recorte */
+      object-position:50% var(--posY, 45%);        /* baja/sube el encuadre */
       transform-origin:center;
     }
 
-    /* Ajustes finos por foto (menos recorte que antes) */
+    /* Ajuste específico por foto (menos recorte que antes) */
     .photoFrame img.photo-beach{
-      transform:scale(var(--ausScale));
-      object-position:var(--ausPosX) var(--ausPosY);
+      --zoom: 1.06;
+      --posY: 52%;
     }
     .photoFrame img.photo-office{
-      transform:scale(var(--proScale));
-      object-position:var(--proPosX) var(--proPosY);
+      --zoom: 1.04;
+      --posY: 40%;
     }
 
     .photoBody{padding:14px 16px 16px}
-    .photoTitle{margin:0;font-size:22px}
+    .photoTitle{margin:0;font-size:22px;font-weight:800}
     .photoDesc{margin:6px 0 0;color:var(--muted)}
 
     .priceBox{display:flex;flex-direction:column;gap:6px}
@@ -155,12 +142,9 @@
 
 <body>
   <div class="wrap">
-
-    <!-- HERO -->
     <header class="hero">
       <div class="topbar">
         <span class="badge" data-i18n="badge">Valencia • Online</span>
-
         <div class="langswitch" aria-label="Language switch">
           <button class="langbtn active" id="btnES" type="button" title="Español">🇪🇸</button>
           <span style="opacity:.65">|</span>
@@ -183,7 +167,6 @@
       </div>
     </header>
 
-    <!-- ABOUT -->
     <section class="section" id="about">
       <h2 data-i18n="aboutTitle">Sobre las clases</h2>
       <div class="card">
@@ -197,7 +180,6 @@
       </div>
     </section>
 
-    <!-- IMPROVE -->
     <section class="section" id="improve">
       <h2 data-i18n="improveTitle">Qué vas a mejorar</h2>
       <div class="grid2">
@@ -230,12 +212,9 @@
       </p>
     </section>
 
-    <!-- EXPERIENCE -->
     <section class="section" id="experience">
       <h2 data-i18n="expTitle">Experiencia</h2>
-
       <div class="grid2">
-        <!-- LEFT: Australia -->
         <div class="card photoCard">
           <div class="photoWrap">
             <div class="photoFrame">
@@ -248,7 +227,6 @@
           </div>
         </div>
 
-        <!-- RIGHT: Professional -->
         <div class="card photoCard">
           <div class="photoWrap">
             <div class="photoFrame">
@@ -263,7 +241,6 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
     <section class="section" id="how">
       <h2 data-i18n="howTitle">Cómo funciona</h2>
       <div class="grid3">
@@ -282,7 +259,6 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section class="section" id="testimonials">
       <h2 data-i18n="testTitle">Testimonios</h2>
       <div class="grid3">
@@ -301,10 +277,8 @@
       </div>
     </section>
 
-    <!-- PRICING -->
     <section class="section" id="pricing">
       <h2 data-i18n="priceTitle">Precios</h2>
-
       <div class="grid2">
         <div class="card priceBox">
           <p class="priceTitle" data-i18n="p1T">Prueba (20 min) — Gratis</p>
@@ -314,9 +288,7 @@
         <div class="card priceBox">
           <p class="priceTitle" data-i18n="p2T">Clase individual (50–60 min)</p>
           <p class="priceSmall">
-            <span class="priceDual">15€</span>
-            <span class="muted"> • </span>
-            <span class="priceDual">A$25</span>
+            <span class="priceDual">15€</span><span class="muted"> • </span><span class="priceDual">A$25</span>
           </p>
           <p class="priceSmall" data-i18n="p2D">Conversación + correcciones + práctica</p>
         </div>
@@ -324,9 +296,7 @@
         <div class="card priceBox">
           <p class="priceTitle" data-i18n="p3T">Pack 5</p>
           <p class="priceSmall">
-            <span class="priceDual">55€</span>
-            <span class="muted"> • </span>
-            <span class="priceDual">A$90</span>
+            <span class="priceDual">55€</span><span class="muted"> • </span><span class="priceDual">A$90</span>
           </p>
           <p class="priceSmall" data-i18n="p3D">Incluye bonus</p>
         </div>
@@ -334,9 +304,7 @@
         <div class="card priceBox">
           <p class="priceTitle" data-i18n="p4T">Pack 12</p>
           <p class="priceSmall">
-            <span class="priceDual">130€</span>
-            <span class="muted"> • </span>
-            <span class="priceDual">A$215</span>
+            <span class="priceDual">130€</span><span class="muted"> • </span><span class="priceDual">A$215</span>
           </p>
           <p class="priceSmall" data-i18n="p4D">Incluye bonus</p>
         </div>
@@ -347,50 +315,33 @@
       </p>
     </section>
 
-    <!-- PAYMENT -->
     <section class="section" id="pay">
       <h2 data-i18n="payTitle">Pago</h2>
       <div class="card">
-        <p style="margin:0" data-i18n="payText">
-          Podés pagar en efectivo (presencial) o por Revolut.
-        </p>
-
+        <p style="margin:0" data-i18n="payText">Podés pagar en efectivo (presencial) o por Revolut.</p>
         <div class="divider"></div>
-
         <div class="cta" style="margin-top:0">
-          <a class="btn primary" href="https://revolut.me/valenciatutor" target="_blank" rel="noopener" data-i18n="payBtn">
-            Pagar por Revolut
-          </a>
+          <a class="btn primary" href="https://revolut.me/valenciatutor" target="_blank" rel="noopener" data-i18n="payBtn">Pagar por Revolut</a>
           <a class="btn secondary" href="#book" data-i18n="bookBtn2">Reservar</a>
         </div>
-
         <p class="muted" style="margin:12px 0 0" data-i18n="paySmall">
           Consejo: al pagar, escribí una nota (por ejemplo: “Clase individual” / “Pack 5”).
         </p>
       </div>
     </section>
 
-    <!-- BOOKING -->
     <section class="section" id="book">
       <h2 data-i18n="bookTitle">Reservar clase</h2>
       <div class="card">
-        <p style="margin:0" data-i18n="bookText">
-          Escribime por WhatsApp y coordinamos. Podés pedir prueba gratis o una clase.
-        </p>
-        <p class="muted" style="margin:10px 0 0" data-i18n="bookHint">
-          En el mensaje podés copiar y completar tus horarios disponibles: “Estoy disponible: ___”.
-        </p>
-
+        <p style="margin:0" data-i18n="bookText">Escribime por WhatsApp y coordinamos. Podés pedir prueba gratis o una clase.</p>
+        <p class="muted" style="margin:10px 0 0" data-i18n="bookHint">En el mensaje podés copiar y completar tus horarios disponibles: “Estoy disponible: ___”.</p>
         <div class="cta">
-          <a class="btn primary" id="waBottom" href="#" target="_blank" rel="noopener" data-i18n="bookBtn">
-            Reservar por WhatsApp
-          </a>
+          <a class="btn primary" id="waBottom" href="#" target="_blank" rel="noopener" data-i18n="bookBtn">Reservar por WhatsApp</a>
           <a class="btn secondary" href="#pricing" data-i18n="bookBtnPrices">Ver precios</a>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="section" id="contact">
       <h2 data-i18n="contactTitle">Contacto</h2>
       <div class="card">
@@ -413,7 +364,6 @@
       es: "Hola David! Quiero reservar una clase. Me interesa: (1) Prueba gratis / (2) Clase individual / (3) Pack. Mi nivel es: ____. Mis objetivos son: ____. Estoy disponible en estos horarios: ____.",
       en: "Hi David! I'd like to book a lesson. I'm interested in: (1) Free trial / (2) Single class / (3) Pack. My level is: ____. My goals are: ____. My available times are: ____."
     };
-
     function buildWaLink(lang){
       const text = encodeURIComponent(waMsg[lang] || waMsg.es);
       return "https://wa.me/" + WA_NUMBER + "?text=" + text;
@@ -424,7 +374,7 @@
         badge:"Valencia • Online",
         h1:"English & Spanish Valencia",
         heroLine:"Conversación real • Aprendizaje práctico • Vida diaria",
-        ctaWA:"Contactar por WhatsApp",
+        ctaWA:"WhatsApp",
         ctaPrices:"Ver precios",
         ctaPay:"Pagar",
         whats:"WhatsApp:",
@@ -474,7 +424,7 @@
         badge:"Valencia • Online",
         h1:"English & Spanish Valencia",
         heroLine:"Real conversation • Practical learning • Daily life",
-        ctaWA:"Message on WhatsApp",
+        ctaWA:"WhatsApp",
         ctaPrices:"See pricing",
         ctaPay:"Pay",
         whats:"WhatsApp:",
@@ -484,8 +434,6 @@
         improveTitle:"What you will improve",
         improveEN:"English",
         improveES:"Spanish",
-        en1:"Speaking confidence", en2:"Listening comprehension", en3:"Pronunciation", en4:"Everyday vocabulary", en5:"Real conversations", en6:"Simple grammar (only what you need)",
-        es1:"Confidence speaking", es2:"Listening skills", es3:"Pronunciation", es4:"Everyday vocabulary", es5:"Real conversation", es6:"Simple, useful grammar",
         improveNote:"No pressure. Step by step. Real progress.",
         expTitle:"Experience",
         expAUS:"Australia",
@@ -524,7 +472,7 @@
 
     function setLang(lang){
       const dict = i18n[lang] || i18n.es;
-      document.documentElement.lang = lang === "en" ? "en" : "es";
+      document.documentElement.lang = (lang === "en") ? "en" : "es";
 
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
@@ -539,15 +487,13 @@
 
       document.getElementById("btnES").classList.toggle("active", lang==="es");
       document.getElementById("btnEN").classList.toggle("active", lang==="en");
-
       localStorage.setItem("siteLang", lang);
     }
 
     document.getElementById("btnES").addEventListener("click", ()=>setLang("es"));
     document.getElementById("btnEN").addEventListener("click", ()=>setLang("en"));
 
-    const saved = localStorage.getItem("siteLang") || "es";
-    setLang(saved);
+    setLang(localStorage.getItem("siteLang") || "es");
   </script>
 </body>
 </html>
